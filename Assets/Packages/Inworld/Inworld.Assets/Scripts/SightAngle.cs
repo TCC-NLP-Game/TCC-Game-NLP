@@ -51,6 +51,7 @@ namespace Inworld.Sample
         {
             if (!m_CameraTransform)
                 m_CameraTransform = PlayerController.Instance.transform;
+                
         }
 
         void Update()

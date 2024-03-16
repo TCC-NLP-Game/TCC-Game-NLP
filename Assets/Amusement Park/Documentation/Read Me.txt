@@ -1,0 +1,25 @@
+Documentation of 3D Amusement Park Asset
+
+In this package, we have created a variety of 3D models specifically designed for an amusement park environment. These models are separate and reusable, allowing you to customize and place them in your own unique amusement park setting. You will find a wide range of props to enhance your amusement park experience. Some of the props included are: Ferris wheel, Chair swing Ride, Kid playing Area, house, kid basket ball pole, Kid plastic Slide, kids playground swing, Kid slide House, benches, Different Trees, fence, different lights, sun, lighthouse, Water Fountain, windmill, pirate Boat ship ride, ticket Booth, baloon airship and other different props.
+
+The package is organized into different folders for easy navigation:
+
+Material: Models are created with multiple materials, allowing for a detailed and realistic rendering of each object.
+
+Models: This folder contains all the 3D models for the amusement park assets.
+
+Prefabs: Each model has a corresponding prefab, making it easy to drag and drop the desired objects into your scene.
+
+Scene: Demo scenes are included in this folder to showcase how the props can be used together in an amusement park setting.
+
+Texture: Various textures have been applied to the models to enhance their visual appeal and provide a more immersive experience.
+
+Documentation: A Read Me file with instructions and information about the asset pack.
+
+Animation: This folder contains animations and animators for different props, allowing for dynamic and interactive elements within your amusement park.
+
+Terrain: Additionally, we have included a pre-made terrain with textures, which you can use as a foundation or customize to suit your amusement park's specific needs.
+
+All the prefabs have been created for easy integration into your environment. Simply drag and drop each prefab wherever you desire within your scene. Additionally, you have the flexibility to scale, transform, and rotate each object to achieve the desired look and feel.
+
+With this comprehensive amusement park asset pack, you can create a visually stunning and immersive 3D environment for your games, animations, or virtual experiences.
