@@ -22,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
-        ApplyGravity();
-        ApplyJump();
+        if (!GameManager.Instance.dialogueManager.isDialogueOpen)
+        {
+            Move();
+            ApplyGravity();
+            ApplyJump();
+        }
     }
 
     void Move()

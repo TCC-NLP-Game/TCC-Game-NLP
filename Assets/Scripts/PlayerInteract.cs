@@ -19,5 +19,12 @@ public class PlayerInteract : MonoBehaviour
 
             }
         }
+
+        bool isDialogueOpen = GameManager.Instance.dialogueManager.isDialogueOpen;
+        if (isDialogueOpen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.dialogueManager.CloseChat();
+        }
+
     }
 }
