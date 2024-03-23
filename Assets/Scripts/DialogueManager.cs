@@ -1,16 +1,15 @@
 using Cinemachine;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    public CinemachineFreeLook freeLook;
-    public bool isDialogueOpen = false;
-    public float rotationSpeed = 2f;
+    [NonSerialized] public bool isDialogueOpen = false;
+    [SerializeField] private CinemachineFreeLook freeLook;
     private DialogueManager chatParent;
-    private Transform playerCamera; 
+    private Transform playerCamera;
+    private float rotationSpeed = 2f;
 
     void Start()
     {
@@ -43,11 +42,7 @@ public class DialogueManager : MonoBehaviour
         while (isDialogueOpen)
         {
             Vector3 direction = npc.position - playerCamera.position;
-
-            // Calculate the rotation needed to look at the NPC's head
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-            // Smoothly interpolate the camera rotation
             playerCamera.rotation = Quaternion.Slerp(playerCamera.rotation, targetRotation, Time.deltaTime * rotationSpeed);  // Set camera rotation directly
             yield return null;
         }

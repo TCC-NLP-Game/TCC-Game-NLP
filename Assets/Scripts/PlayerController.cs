@@ -1,4 +1,5 @@
 using Inworld;
+using Inworld.Packet;
 using TMPro;
 using UnityEngine;
 
@@ -25,7 +26,6 @@ public class PlayerController : SingletonBehavior<PlayerController>
         try
         {
             if (InworldController.CurrentCharacter)
-                Debug.Log(InworldController.CurrentCharacter);
                 InworldController.CurrentCharacter.SendText(m_InputField.text);
             m_InputField.text = "";
         }
@@ -42,8 +42,6 @@ public class PlayerController : SingletonBehavior<PlayerController>
 
     protected virtual void OnDisable()
     {
-        if (!InworldController.Instance)
-            return;
         InworldController.CharacterHandler.OnCharacterChanged -= OnCharacterChanged;
     }
 

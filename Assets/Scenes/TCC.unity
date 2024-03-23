@@ -758,7 +758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271089082}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24767599, y: -0.00000001667028, z: 0.000000004261607, w: 0.9688429}
+  m_LocalRotation: {x: 0.24767599, y: 0.00000001667028, z: -0.000000004261607, w: 0.9688429}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1012,7 +1012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367017150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2198257, y: 0.00000002547182, z: -0.0000000057397602, w: 0.9755392}
+  m_LocalRotation: {x: 0.21982571, y: -0.000000003856126, z: 8.689311e-10, w: 0.9755392}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1524,38 +1524,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1603017118}
-  m_Father: {fileID: 1722100455}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &538763078
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 538763079}
-  m_Layer: 0
-  m_Name: Chat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &538763079
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538763078}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1207059749}
   m_Father: {fileID: 1722100455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542559861
@@ -3574,7 +3542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24767597, y: -0.00000003334056, z: 0.000000008523214, w: 0.9688429}
+  m_LocalRotation: {x: 0.24767597, y: 0.00000003334056, z: -0.000000008523214, w: 0.9688429}
   m_LocalPosition: {x: -34.61191, y: -21.932146, z: -28.875435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4280,8 +4248,9 @@ GameObject:
   - component: {fileID: 1207059751}
   - component: {fileID: 1207059750}
   - component: {fileID: 1207059753}
+  - component: {fileID: 1207059754}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: ChatPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4273,7 @@ RectTransform:
   - {fileID: 315898586}
   - {fileID: 1316955461}
   - {fileID: 217064958}
-  m_Father: {fileID: 538763079}
+  m_Father: {fileID: 1722100455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4389,6 +4358,19 @@ MonoBehaviour:
   freeLook: {fileID: 1728520100}
   isDialogueOpen: 0
   rotationSpeed: 2
+--- !u!114 &1207059754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207059748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5f6f06b7653284396559f384ca9b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatBox: {fileID: 542559863}
 --- !u!1 &1307328741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6512,7 +6494,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 532158480}
-  - {fileID: 538763079}
+  - {fileID: 1207059749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728520098
