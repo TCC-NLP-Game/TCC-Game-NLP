@@ -6,7 +6,8 @@ using TMPro;
 
 public class DialogueService : MonoBehaviour
 {
-    [SerializeField] protected TextMeshProUGUI chatBox;
+    [SerializeField] protected TextMeshProUGUI npcTextBox;
+    [SerializeField] protected TextMeshProUGUI playerTextBox;
 
     protected virtual void OnEnable()
     {
@@ -15,6 +16,8 @@ public class DialogueService : MonoBehaviour
 
     protected virtual void OnDisable()
     {
+        npcTextBox.text = "";
+        playerTextBox.text = "";
         if (!InworldController.Instance)
             return;
         InworldController.Instance.OnCharacterInteraction -= OnInteraction;
@@ -36,11 +39,23 @@ public class DialogueService : MonoBehaviour
     protected virtual void HandleText(TextPacket textPacket)
     {
         InworldCharacterData charData = InworldController.CharacterHandler.GetCharacterDataByID(textPacket.routing.source.name);
-        if (charData != null)
+        string whoIsTalking = textPacket.routing.source.type.ToUpper();
+        string content = textPacket.text.text;
+        switch (whoIsTalking)
         {
-            string charName = charData.givenName ?? "Character";
-            string content = textPacket.text.text;
-            chatBox.text = $"{charName}: {content}";
+            case "AGENT":
+                if (charData != null)
+                {
+                    string charName = charData.givenName ?? "Character";
+                    npcTextBox.text = $"{charName}: {content}";
+                }
+                break;
+            case "PLAYER":
+                playerTextBox.text = $"You: {content}";
+                break;
+
         }
+
+
     }
 }
