@@ -1,30 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    [SerializeField] GameObject interactHint;
+
+    private void Start()
+    {
+        interactHint.SetActive(false);
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        HandleInteract();
+        HandleCloseChat();
+    }
+    private bool GetIsDialogueOpen()
+    {
+        return GameManager.Instance.dialogueManager.isDialogueOpen;
+    }
+
+    private void HandleInteract()
+    {
+        float interactRange = 2f;
+        Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
+        interactHint.SetActive(false);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange) && !GetIsDialogueOpen())
         {
-            float interactRange = 2f;
-            Collider[] collidedItems = Physics.OverlapSphere(transform.position, interactRange);
-            foreach  (Collider collider in collidedItems)
+            if (hit.collider.TryGetComponent(out NPCInteractable npcInteractable))
             {
-                if (collider.TryGetComponent(out NPCInteractable npcInteractable))
+                interactHint.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     npcInteractable.Interact();
                 }
-
             }
         }
+    }
 
-        bool isDialogueOpen = GameManager.Instance.dialogueManager.isDialogueOpen;
-        if (isDialogueOpen && Input.GetKeyDown(KeyCode.Escape))
+    private void HandleCloseChat()
+    {
+        if (GetIsDialogueOpen() && Input.GetKeyDown(KeyCode.Escape))
         {
             GameManager.Instance.dialogueManager.CloseChat();
         }
-
     }
 }
