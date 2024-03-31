@@ -7,7 +7,9 @@ using TMPro;
 public class DialogueService : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcTextBox;
+    [SerializeField] protected TextMeshProUGUI npcNameTextBox;
     [SerializeField] protected TextMeshProUGUI playerTextBox;
+    [SerializeField] protected TMP_InputField inputField;
 
     protected virtual void OnEnable()
     {
@@ -30,6 +32,9 @@ public class DialogueService : MonoBehaviour
             case TextPacket textPacket:
                 HandleText(textPacket);
                 break;
+            case ControlPacket controlPacket:
+                HandleControl(controlPacket);
+                break;
             default:
                 InworldAI.LogWarning($"Received unknown {incomingPacket.type}");
                 break;
@@ -46,16 +51,18 @@ public class DialogueService : MonoBehaviour
             case "AGENT":
                 if (charData != null)
                 {
-                    string charName = charData.givenName ?? "Character";
-                    npcTextBox.text = $"{charName}: {content}";
+                    npcTextBox.text = content;
+                    npcNameTextBox.text = charData.givenName ?? "Character";
                 }
                 break;
             case "PLAYER":
-                playerTextBox.text = $"You: {content}";
+                playerTextBox.text = content;
                 break;
-
         }
+    }
 
-
+    protected virtual void HandleControl(ControlPacket controlPacket)
+    {
+        inputField.interactable = true;
     }
 }

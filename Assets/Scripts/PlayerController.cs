@@ -1,12 +1,11 @@
 using Inworld;
-using Inworld.Packet;
 using TMPro;
 using UnityEngine;
 
 public class PlayerController : SingletonBehavior<PlayerController>
 {
     [Header("References")]
-    [SerializeField] protected TMP_InputField m_InputField;
+    [SerializeField] protected TMP_InputField inputField;
 
     protected virtual void Update()
     {
@@ -21,17 +20,19 @@ public class PlayerController : SingletonBehavior<PlayerController>
 
     public void SendText()
     {
-        if (!m_InputField || string.IsNullOrEmpty(m_InputField.text) || !InworldController.CurrentCharacter)
+        if (!inputField || string.IsNullOrEmpty(inputField.text) || !InworldController.CurrentCharacter)
             return;
         try
         {
-            if (InworldController.CurrentCharacter)
-                InworldController.CurrentCharacter.SendText(m_InputField.text);
-            m_InputField.text = "";
+            if (InworldController.CurrentCharacter) {
+                InworldController.CurrentCharacter.SendText(inputField.text);
+                inputField.interactable = false;
+                inputField.text = "";
+            }
         }
-        catch (InworldException e)
+        catch (InworldException error)
         {
-            InworldAI.LogWarning($"Failed to send texts: {e}");
+            InworldAI.LogWarning($"Failed to send texts: {error}");
         }
     }
 
