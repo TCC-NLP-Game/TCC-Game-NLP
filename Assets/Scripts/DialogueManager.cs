@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private CinemachineFreeLook freeLook;
     private DialogueManager chatParent;
     private Transform playerCamera;
-    private float rotationSpeed = 2f;
+    private readonly float rotationSpeed = 2f;
 
     void Start()
     {

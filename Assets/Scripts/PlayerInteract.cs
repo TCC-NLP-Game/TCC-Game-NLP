@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleInteract()
     {
-        float interactRange = 2f;
+        float interactRange = 4f;
         Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
         interactHint.SetActive(false);
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange) && !GetIsDialogueOpen())

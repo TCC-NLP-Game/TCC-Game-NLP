@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
     private float rotationSpeed = 10f;
     private Animator animator;
-    private float defaultSpeed = 5f;
-    private float runningMultiplier = 2f;
+    private float defaultSpeed = 4f;
+    private float runningMultiplier = 1.5f;
     private bool isGrounded = true;
     private CharacterController character;
     private Vector3 moveDirection;
@@ -41,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = (Camera.main.transform.forward * verticalInput + Camera.main.transform.right * horizontalInput).normalized;
         moveDirection.y = 0;
-        character.Move(moveDirection * moveSpeed * Time.deltaTime);
+        character.Move(moveSpeed * Time.deltaTime * moveDirection);
 
         if (moveDirection != Vector3.zero)
         {
