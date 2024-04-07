@@ -27,6 +27,7 @@ public class PlayerController : SingletonBehavior<PlayerController>
                 InworldController.CurrentCharacter.SendText(inputField.text);
                 inputField.interactable = false;
                 inputField.text = "";
+                GameManager.Instance.dialogueManager.SetIsClosable(false);
             }
         }
         catch (InworldException error)

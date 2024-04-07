@@ -20,6 +20,7 @@ public class DialogueService : MonoBehaviour
 
     private void OnEnable()
     {
+        inputField.interactable = true;
         InworldController.Instance.OnCharacterInteraction += OnInteraction;
     }
 
@@ -34,13 +35,14 @@ public class DialogueService : MonoBehaviour
 
     private void OnInteraction(InworldPacket incomingPacket)
     {
+        GameManager.Instance.dialogueManager.SetIsClosable(true);
         switch (incomingPacket)
         {
             case TextPacket textPacket:
                 HandleText(textPacket);
                 break;
-            case ControlPacket controlPacket:
-                HandleControl(controlPacket);
+            case ControlPacket:
+                HandleControl();
                 break;
             case AudioPacket:
                 break;
@@ -65,7 +67,7 @@ public class DialogueService : MonoBehaviour
         }
     }
 
-    private void HandleControl(ControlPacket controlPacket)
+    private void HandleControl()
     {
         inputField.interactable = true;
     }

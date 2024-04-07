@@ -26,6 +26,7 @@ public class NPCInteractable : InworldInteraction
     {
         while (true)
         {
+            yield return RemoveExceedItems();
             yield return HandleNextUtterance();
         }
     }

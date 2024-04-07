@@ -1,7 +1,9 @@
 using Cinemachine;
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueManager chatParent;
     private Transform playerCamera;
     private readonly float rotationSpeed = 2f;
+    [NonSerialized] public bool canBeClosed = true;
+    [SerializeField] protected Image closableTextBox;
 
     void Start()
     {
@@ -35,6 +39,11 @@ public class DialogueManager : MonoBehaviour
         isDialogueOpen = false;
         chatParent.gameObject.SetActive(false);
         freeLook.enabled = true;
+    }
+
+    public void SetIsClosable(bool isClosable = true) { 
+        canBeClosed = isClosable;
+        closableTextBox.gameObject.SetActive(isClosable);
     }
 
     IEnumerator TurnCameraTowardsNPC(Transform npc)

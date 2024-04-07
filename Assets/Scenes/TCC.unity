@@ -1289,6 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeLook: {fileID: 1793806891}
+  closableTextBox: {fileID: 1399213903}
 --- !u!114 &143321610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8288,11 +8289,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1344513112}
+  m_Father: {fileID: 1399213902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44.39999, y: -50.699993}
+  m_AnchoredPosition: {x: 41.79997, y: 0.40002823}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733936186
@@ -8767,7 +8768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765192549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.166376, y: -0.009365457, z: 0.0015802847, w: 0.98601663}
+  m_LocalRotation: {x: 0.166376, y: -0.009365456, z: 0.0015802847, w: 0.98601663}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9186,7 +9187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781929035}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14841335, y: -0.009392682, z: 0.0014096752, w: 0.9888798}
+  m_LocalRotation: {x: 0.14841335, y: -0.009392666, z: 0.0014096728, w: 0.9888798}
   m_LocalPosition: {x: -35.07598, y: -23.075146, z: -32.417435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14449,7 +14450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195893652}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14841335, y: -0.0093926815, z: 0.0014096751, w: 0.9888798}
+  m_LocalRotation: {x: 0.14841335, y: -0.009392665, z: 0.0014096725, w: 0.9888798}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16483,7 +16484,6 @@ RectTransform:
   m_Children:
   - {fileID: 283344340}
   - {fileID: 1399213902}
-  - {fileID: 733936185}
   - {fileID: 284859530}
   m_Father: {fileID: 143321607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16985,7 +16985,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 733936185}
   m_Father: {fileID: 1344513112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -17270,7 +17271,7 @@ MonoBehaviour:
   m_Interruptable: 1
   m_AutoProceed: 1
   m_MaxItemCount: 250
-  m_TextSpeedMultipler: 0.02
+  m_TextSpeedMultipler: 0.1
 --- !u!136 &1413864882
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19610,7 +19611,7 @@ MonoBehaviour:
       thumbnailProgress: 0
       avatarProgress: 0
     thumbnail: {fileID: 0}
-  m_VerboseLog: 0
+  m_VerboseLog: 1
   onBeginSpeaking:
     m_PersistentCalls:
       m_Calls: []
@@ -19652,8 +19653,8 @@ MonoBehaviour:
   m_ContinueButton: {fileID: 0}
   m_Interruptable: 1
   m_AutoProceed: 1
-  m_MaxItemCount: 100
-  m_TextSpeedMultipler: 0.02
+  m_MaxItemCount: 250
+  m_TextSpeedMultipler: 0.1
 --- !u!136 &1600980155
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24134,7 +24135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982024026}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13044919, y: -0.009416718, z: 0.001239047, w: 0.99140954}
+  m_LocalRotation: {x: 0.13044919, y: -0.009416684, z: 0.0012390425, w: 0.99140954}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24409,7 +24410,7 @@ PrefabInstance:
     - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
       propertyPath: m_GameData
       value: 
-      objectReference: {fileID: 11400000, guid: bbb8d4c3f38bba44dafd0dfcacc2e345, type: 2}
+      objectReference: {fileID: 11400000, guid: 483b14fca09df6b438211d6586833ec2, type: 2}
     - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
       propertyPath: m_AutoStart
       value: 1
