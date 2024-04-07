@@ -1,3 +1,4 @@
+using Inworld;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -39,8 +40,10 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleCloseChat()
     {
-        if (GetIsDialogueOpen() && Input.GetKeyDown(KeyCode.Escape))
+        bool canBeClosed = GetIsDialogueOpen() && GameManager.Instance.dialogueManager.canBeClosed;
+        if (canBeClosed && Input.GetKeyDown(KeyCode.Escape))
         {
+            InworldController.CurrentCharacter.CancelResponse();
             GameManager.Instance.dialogueManager.CloseChat();
         }
     }

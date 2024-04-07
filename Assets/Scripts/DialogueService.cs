@@ -11,12 +11,20 @@ public class DialogueService : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI playerTextBox;
     [SerializeField] protected TMP_InputField inputField;
 
-    protected virtual void OnEnable()
+    void Update()
     {
+        // todo: move to a function to be called on interact trigger, instead frame update
+        InworldCharacterData charData = InworldController.CurrentCharacter.Data;
+        npcNameTextBox.text = charData.givenName ?? "Character";
+    }
+
+    private void OnEnable()
+    {
+        inputField.interactable = true;
         InworldController.Instance.OnCharacterInteraction += OnInteraction;
     }
 
-    protected virtual void OnDisable()
+    private void OnDisable()
     {
         npcTextBox.text = "";
         playerTextBox.text = "";
@@ -25,15 +33,18 @@ public class DialogueService : MonoBehaviour
         InworldController.Instance.OnCharacterInteraction -= OnInteraction;
     }
 
-    protected virtual void OnInteraction(InworldPacket incomingPacket)
+    private void OnInteraction(InworldPacket incomingPacket)
     {
+        GameManager.Instance.dialogueManager.SetIsClosable(true);
         switch (incomingPacket)
         {
             case TextPacket textPacket:
                 HandleText(textPacket);
                 break;
-            case ControlPacket controlPacket:
-                HandleControl(controlPacket);
+            case ControlPacket:
+                HandleControl();
+                break;
+            case AudioPacket:
                 break;
             default:
                 InworldAI.LogWarning($"Received unknown {incomingPacket.type}");
@@ -41,19 +52,14 @@ public class DialogueService : MonoBehaviour
         }
     }
 
-    protected virtual void HandleText(TextPacket textPacket)
+    private void HandleText(TextPacket textPacket)
     {
-        InworldCharacterData charData = InworldController.CharacterHandler.GetCharacterDataByID(textPacket.routing.source.name);
         string whoIsTalking = textPacket.routing.source.type.ToUpper();
         string content = textPacket.text.text;
         switch (whoIsTalking)
         {
             case "AGENT":
-                if (charData != null)
-                {
-                    npcTextBox.text = content;
-                    npcNameTextBox.text = charData.givenName ?? "Character";
-                }
+                npcTextBox.text = content;
                 break;
             case "PLAYER":
                 playerTextBox.text = content;
@@ -61,7 +67,7 @@ public class DialogueService : MonoBehaviour
         }
     }
 
-    protected virtual void HandleControl(ControlPacket controlPacket)
+    private void HandleControl()
     {
         inputField.interactable = true;
     }

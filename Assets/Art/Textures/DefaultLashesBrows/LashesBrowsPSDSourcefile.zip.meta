@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art/Textures/DefaultLashesBrows/LashesBrowsPSDSourcefile.zip.meta
 guid: 934957df6acc11349ba81068586e86bf
 DefaultImporter:
+=======
+guid: c73536dd48d37c746b4bcb0d895d8d69
+PrefabImporter:
+>>>>>>> feat: change characters on interaction:Assets/ThirdParty/Inworld/UserData/200897/Prefabs/the_caterpillar_default-gbzaq6radu4dchaos811tw.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
