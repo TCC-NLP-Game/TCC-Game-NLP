@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerController : SingletonBehavior<PlayerController>
 {
-    [Header("References")]
     [SerializeField] protected TMP_InputField inputField;
 
-    protected virtual void Update()
+    void Update()
     {
         HandleInput();
     }
 
-    protected virtual void HandleInput()
+    private void HandleInput()
     {
         if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter))
             SendText();
@@ -34,25 +33,5 @@ public class PlayerController : SingletonBehavior<PlayerController>
         {
             InworldAI.LogWarning($"Failed to send texts: {error}");
         }
-    }
-
-    protected virtual void OnEnable()
-    {
-        InworldController.CharacterHandler.OnCharacterChanged += OnCharacterChanged;
-    }
-
-    protected virtual void OnDisable()
-    {
-        InworldController.CharacterHandler.OnCharacterChanged -= OnCharacterChanged;
-    }
-
-    protected virtual void OnCharacterChanged(InworldCharacter oldChar, InworldCharacter newChar)
-    {
-        if (newChar == null)
-        {
-            InworldAI.Log($"No longer talking to anyone.");
-            return;
-        }
-        InworldAI.Log($"Now Talking to: {newChar.Name}");
     }
 }

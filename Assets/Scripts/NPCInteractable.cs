@@ -1,7 +1,9 @@
+using Inworld;
 using Inworld.Interactions;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CapsuleCollider))]
 public class NPCInteractable : InworldInteraction
 {
     private DialogueManager dialogueManager;
@@ -16,9 +18,9 @@ public class NPCInteractable : InworldInteraction
         GameObject tempLookAt = Instantiate(new GameObject("TempLookAt"));
         tempLookAt.transform.position = transform.position;
         tempLookAt.transform.position += new Vector3(0f, 1f, 0f);
+        InworldController.CurrentCharacter = GetComponent<InworldCharacter>();
         dialogueManager.OpenChat(tempLookAt.transform);
     }
-
 
     protected override IEnumerator InteractionCoroutine()
     {

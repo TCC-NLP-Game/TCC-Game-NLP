@@ -20,21 +20,21 @@ public class DialogueManager : MonoBehaviour
 
     public void OpenChat(Transform npc)
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         isDialogueOpen = true;
         freeLook.enabled = false;
         chatParent.gameObject.SetActive(true);
         StartCoroutine(TurnCameraTowardsNPC(npc));
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void CloseChat()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         isDialogueOpen = false;
         chatParent.gameObject.SetActive(false);
         freeLook.enabled = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     IEnumerator TurnCameraTowardsNPC(Transform npc)
