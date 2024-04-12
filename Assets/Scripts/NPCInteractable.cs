@@ -15,11 +15,8 @@ public class NPCInteractable : InworldInteraction
 
     public void Interact()
     {
-        GameObject tempLookAt = Instantiate(new GameObject("TempLookAt"));
-        tempLookAt.transform.position = transform.position;
-        tempLookAt.transform.position += new Vector3(0f, 1f, 0f);
         InworldController.CurrentCharacter = GetComponent<InworldCharacter>();
-        dialogueManager.OpenChat(tempLookAt.transform);
+        dialogueManager.OpenChat();
     }
 
     protected override IEnumerator InteractionCoroutine()
