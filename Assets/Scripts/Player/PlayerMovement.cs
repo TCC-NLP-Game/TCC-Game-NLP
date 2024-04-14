@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float rotationSpeed = 10f;
+    private readonly float rotationSpeed = 5f;
+    private readonly float defaultSpeed = 5f;
+    private readonly float runningMultiplier = 1.5f;
     private Animator animator;
-    private float defaultSpeed = 4f;
-    private float runningMultiplier = 1.5f;
     private bool isGrounded = true;
     private CharacterController character;
     private Vector3 moveDirection;
@@ -26,14 +26,20 @@ public class PlayerMovement : MonoBehaviour
             Move();
             ApplyGravity();
             ApplyJump();
+            return;
         }
+        StopMovementAnimation();
+    }
+
+    private void StopMovementAnimation ()
+    {
+        animator.SetBool("isMoving", false);
+        animator.SetBool("isRunning", false);
     }
 
     void Move()
     {
-        animator.SetBool("isMoving", false);
-        animator.SetBool("isRunning", false);
-
+        StopMovementAnimation();
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) ? defaultSpeed * runningMultiplier : defaultSpeed;

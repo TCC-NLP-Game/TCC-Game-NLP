@@ -15,9 +15,15 @@ public class PlayerInteract : MonoBehaviour
         HandleInteract();
         HandleCloseChat();
     }
+
     private bool GetIsDialogueOpen()
     {
         return GameManager.Instance.dialogueManager.isDialogueOpen;
+    }
+
+    private bool CanDialogueBeClosed ()
+    {
+        return GetIsDialogueOpen() && GameManager.Instance.dialogueManager.canBeClosed;
     }
 
     private void HandleInteract()
@@ -40,8 +46,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleCloseChat()
     {
-        bool canBeClosed = GetIsDialogueOpen() && GameManager.Instance.dialogueManager.canBeClosed;
-        if (canBeClosed && Input.GetKeyDown(KeyCode.Escape))
+        if (CanDialogueBeClosed() && Input.GetKeyDown(KeyCode.Escape))
         {
             InworldController.CurrentCharacter.CancelResponse();
             GameManager.Instance.dialogueManager.CloseChat();

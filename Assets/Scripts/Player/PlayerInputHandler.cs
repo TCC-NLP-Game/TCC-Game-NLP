@@ -2,7 +2,7 @@ using Inworld;
 using TMPro;
 using UnityEngine;
 
-public class PlayerController : SingletonBehavior<PlayerController>
+public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] protected TMP_InputField inputField;
 
@@ -13,17 +13,19 @@ public class PlayerController : SingletonBehavior<PlayerController>
 
     private void HandleInput()
     {
+        if (!GameManager.Instance.dialogueManager.isDialogueOpen) return;
         if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter))
             SendText();
     }
 
-    public void SendText()
+    private void SendText()
     {
-        if (!inputField || string.IsNullOrEmpty(inputField.text) || !InworldController.CurrentCharacter)
+        if (string.IsNullOrEmpty(inputField.text) || !InworldController.CurrentCharacter)
             return;
         try
         {
-            if (InworldController.CurrentCharacter) {
+            if (InworldController.CurrentCharacter)
+            {
                 InworldController.CurrentCharacter.SendText(inputField.text);
                 inputField.interactable = false;
                 inputField.text = "";

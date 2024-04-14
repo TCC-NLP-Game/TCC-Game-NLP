@@ -4,7 +4,7 @@ using UnityEngine;
 using Inworld.Entities;
 using TMPro;
 
-public class DialogueService : MonoBehaviour
+public class DialogueHandler: MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcTextBox;
     [SerializeField] protected TextMeshProUGUI npcNameTextBox;
