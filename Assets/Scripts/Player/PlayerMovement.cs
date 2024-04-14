@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private readonly float rotationSpeed = 5f;
-    private readonly float defaultSpeed = 5f;
-    private readonly float runningMultiplier = 1.5f;
+    private readonly float defaultSpeed = 3f;
+    private readonly float runningMultiplier = 1.8f;
     private Animator animator;
     private bool isGrounded = true;
     private CharacterController character;
