@@ -1,14 +1,20 @@
 using Inworld;
+using Inworld.Entities;
 using Inworld.Interactions;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(CapsuleCollider))]
 public class NPCInteractable : InworldInteraction
 {
+    [SerializeField] protected TextMeshProUGUI npcNameTextBox;
+
     public void Interact()
     {
         InworldController.CurrentCharacter = GetComponent<InworldCharacter>();
+        InworldCharacterData charData = InworldController.CurrentCharacter.Data;
+        npcNameTextBox.text = charData.givenName ?? "Character";
         GameManager.Instance.dialogueManager.OpenChat();
     }
 

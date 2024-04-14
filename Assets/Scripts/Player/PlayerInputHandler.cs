@@ -28,7 +28,6 @@ public class PlayerInputHandler : MonoBehaviour
             {
                 InworldController.CurrentCharacter.SendText(inputField.text);
                 inputField.interactable = false;
-                inputField.text = "";
                 GameManager.Instance.dialogueManager.SetIsClosable(false);
             }
         }
