@@ -1,33 +1,23 @@
 using Inworld.Packet;
 using Inworld;
 using UnityEngine;
-using Inworld.Entities;
 using TMPro;
 
 public class DialogueHandler: MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcTextBox;
-    [SerializeField] protected TextMeshProUGUI npcNameTextBox;
-    [SerializeField] protected TextMeshProUGUI playerTextBox;
     [SerializeField] protected TMP_InputField inputField;
-
-    void Update()
-    {
-        // todo: move to a function to be called on interact trigger, instead frame update
-        InworldCharacterData charData = InworldController.CurrentCharacter.Data;
-        npcNameTextBox.text = charData.givenName ?? "Character";
-    }
 
     private void OnEnable()
     {
         inputField.interactable = true;
+        inputField.ActivateInputField();
         InworldController.Instance.OnCharacterInteraction += OnInteraction;
     }
 
     private void OnDisable()
     {
         npcTextBox.text = "";
-        playerTextBox.text = "";
         if (!InworldController.Instance)
             return;
         InworldController.Instance.OnCharacterInteraction -= OnInteraction;
@@ -61,14 +51,13 @@ public class DialogueHandler: MonoBehaviour
             case "AGENT":
                 npcTextBox.text = content;
                 break;
-            case "PLAYER":
-                playerTextBox.text = content;
-                break;
         }
     }
 
     private void HandleControl()
     {
+        inputField.text = "";
         inputField.interactable = true;
+        inputField.ActivateInputField();
     }
 }
