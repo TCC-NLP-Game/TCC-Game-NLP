@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] protected TMP_InputField inputField;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -26,6 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
         {
             if (InworldController.CurrentCharacter)
             {
+                animator.Play("Talk");
                 InworldController.CurrentCharacter.SendText(inputField.text);
                 inputField.interactable = false;
                 GameManager.Instance.dialogueManager.SetIsClosable(false);
