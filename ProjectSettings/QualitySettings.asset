@@ -252,7 +252,7 @@ QualitySettings:
     terrainMaxTrees: 50
     excludedTargetPlatforms: []
   - serializedVersion: 3
-    name: Ultra
+    name: High
     pixelLightCount: 4
     shadows: 2
     shadowResolution: 2
@@ -262,21 +262,21 @@ QualitySettings:
     shadowNearPlaneOffset: 3
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
-    shadowmaskMode: 1
-    skinWeights: 4
+    shadowmaskMode: 0
+    skinWeights: 255
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
     anisotropicTextures: 2
-    antiAliasing: 0
+    antiAliasing: 8
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
-    useLegacyDetailDistribution: 1
+    useLegacyDetailDistribution: 0
     vSyncCount: 1
     realtimeGICPUUsage: 100
-    lodBias: 2
-    maximumLODLevel: 0
+    lodBias: 5.77
+    maximumLODLevel: 1
     enableLODCrossFade: 1
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1
@@ -308,9 +308,9 @@ QualitySettings:
     Nintendo Switch: 5
     PS4: 5
     PSP2: 2
-    Server: 0
+    Server: 3
     Stadia: 5
-    Standalone: 5
+    Standalone: 3
     WebGL: 3
     Windows Store Apps: 5
     XboxOne: 5

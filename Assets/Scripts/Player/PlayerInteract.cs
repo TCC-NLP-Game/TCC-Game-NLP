@@ -1,9 +1,19 @@
 using Inworld;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] GameObject interactHint;
+
+    private float targetWeight;
+    private Rig rig;
+
+    private void Awake()
+    {
+        rig = GetComponentInChildren<Rig>();
+    }
+
 
     private void Start()
     {
@@ -14,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
     {
         HandleInteract();
         HandleCloseChat();
+        // rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
     }
 
     private bool GetIsDialogueOpen()
@@ -38,6 +49,7 @@ public class PlayerInteract : MonoBehaviour
                 interactHint.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    targetWeight = 1f;
                     npcInteractable.Interact();
                 }
             }
@@ -48,6 +60,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (CanDialogueBeClosed() && Input.GetKeyDown(KeyCode.Escape))
         {
+            targetWeight = 0;
             InworldController.CurrentCharacter.CancelResponse();
             GameManager.Instance.dialogueManager.CloseChat();
         }

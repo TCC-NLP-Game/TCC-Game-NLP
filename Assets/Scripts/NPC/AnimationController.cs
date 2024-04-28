@@ -3,6 +3,7 @@ using Inworld.Assets;
 using Inworld.Packet;
 using UnityEngine;
 
+[RequireComponent(typeof(AnimationController))]
  public class AnimationController : InworldAnimation
 {
     [SerializeField] Animator animator;
