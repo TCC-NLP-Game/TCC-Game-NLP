@@ -8,6 +8,8 @@ public class PlayerInteract : MonoBehaviour
 
     private float targetWeight;
     private Rig rig;
+    public Transform playerHead;
+    public Transform playerTarget;
 
     private void Awake()
     {
@@ -24,7 +26,7 @@ public class PlayerInteract : MonoBehaviour
     {
         HandleInteract();
         HandleCloseChat();
-        // rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
+        rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
     }
 
     private bool GetIsDialogueOpen()
@@ -50,6 +52,7 @@ public class PlayerInteract : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     targetWeight = 1f;
+                    playerTarget.position = npcInteractable.npcHead.transform.position;
                     npcInteractable.Interact();
                 }
             }
