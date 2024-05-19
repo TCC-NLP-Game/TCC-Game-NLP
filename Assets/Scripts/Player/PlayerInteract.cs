@@ -24,7 +24,7 @@ public class PlayerInteract : MonoBehaviour
     {
         HandleInteract();
         HandleCloseChat();
-        // rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
+        rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
     }
 
     private bool GetIsDialogueOpen()
