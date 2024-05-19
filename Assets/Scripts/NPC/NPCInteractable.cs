@@ -5,7 +5,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(CapsuleCollider))]
 public class NPCInteractable : InworldInteraction
 {
     [SerializeField] protected TextMeshProUGUI npcNameTextBox;
