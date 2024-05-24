@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44911033, g: 0.7202974, b: 0.72887176, a: 1}
+  m_IndirectSpecularColor: {r: 0.4491101, g: 0.7202973, b: 0.7288707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6047,8 +6047,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/azzlet
+    givenName: Azzlet
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -8043,8 +8043,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/flowerbun
+    givenName: Flowerbun
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -9583,8 +9583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fuzzball
+    givenName: Fuzzball
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -11367,8 +11367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snugglepaws
+    givenName: Snugglepaws
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -12433,8 +12433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/cuddlebug
+    givenName: Cuddlebug
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -13664,6 +13664,62 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9596629b792feaf41893429551125699, type: 2}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 285.36
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 204.76
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -212.76
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.74884015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6627507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -83.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      propertyPath: m_Name
+      value: Amy
+      objectReference: {fileID: 0}
     - target: {fileID: -8496879035693090889, guid: 7468f39152b38f246b3c1e9415b0f72e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25835705
@@ -14299,62 +14355,6 @@ PrefabInstance:
     - target: {fileID: 8259520711292204883, guid: 7468f39152b38f246b3c1e9415b0f72e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.66910154
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 285.36
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 204.76
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -212.76
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.74884015
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.6627507
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -83.02
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
-      propertyPath: m_Name
-      value: Amy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20494,8 +20494,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/azza
+    givenName: Azza
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -22029,8 +22029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/bunpop
+    givenName: Bunpop
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -25082,6 +25082,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1798490669}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 270.58
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 205.091
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -180.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.2495349
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9683658
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -208.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      propertyPath: m_Name
+      value: BigVegas
+      objectReference: {fileID: 0}
     - target: {fileID: -7396561535389951827, guid: d701b3870cdef1f40823216d619c3624, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -29689,8 +29745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/puffdora
+    givenName: Puffdora
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -32261,8 +32317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/muffy
+    givenName: Muffy
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -36847,8 +36903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_caterpillar
-    givenName: Caterpillar
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snickerdoodle
+    givenName: Snickerdoodle
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -38950,8 +39006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/purrin
+    givenName: Purrin
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -41066,8 +41122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fanty
+    givenName: Fanty
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -46058,8 +46114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/pufflet
+    givenName: Pufflet
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -46555,8 +46611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/game_master
-    givenName: Game Master
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fluffkins
+    givenName: Fluffkins
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -50635,8 +50691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data:
     agentId: 
-    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/the_mad_hatter
-    givenName: Mad Hatter
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snugglepuff
+    givenName: Snugglepuff
     characterAssets:
       rpmModelUri: 
       rpmImageUriPortrait: 
@@ -51924,7 +51980,7 @@ PrefabInstance:
     - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
       propertyPath: m_GameData
       value: 
-      objectReference: {fileID: 11400000, guid: 483b14fca09df6b438211d6586833ec2, type: 2}
+      objectReference: {fileID: 11400000, guid: 368cbd0ba022de24c904f779fa11e85f, type: 2}
     - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
       propertyPath: m_AutoStart
       value: 1
