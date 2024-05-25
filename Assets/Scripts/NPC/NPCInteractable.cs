@@ -4,6 +4,7 @@ using Inworld.Interactions;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class NPCInteractable : InworldInteraction
 {
@@ -11,10 +12,22 @@ public class NPCInteractable : InworldInteraction
     private PlayerInteract player;
     public Transform npcHead;
     public Transform npcTarget;
+    private Rig rig;
+    private float targetWeight;
+
+    private void Awake()
+    {
+        rig = GetComponentInChildren<Rig>();
+    }
 
     private void Start()
     {
         player = FindObjectOfType<PlayerInteract>();
+    }
+
+    private void Update()
+    {
+        rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
     }
 
     public void Interact()
@@ -22,8 +35,14 @@ public class NPCInteractable : InworldInteraction
         InworldController.CurrentCharacter = GetComponent<InworldCharacter>();
         InworldCharacterData charData = InworldController.CurrentCharacter.Data;
         npcNameTextBox.text = charData.givenName ?? "Character";
-        npcTarget.position = player.playerHead.transform.position;
         GameManager.Instance.dialogueManager.OpenChat();
+        targetWeight = 1f;
+        npcTarget.position = player.playerHead.transform.position;
+    }
+
+    public void EndInteraction()
+    {
+        targetWeight = 0f;
     }
 
     protected override IEnumerator InteractionCoroutine()
