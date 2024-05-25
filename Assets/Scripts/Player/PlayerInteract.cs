@@ -10,6 +10,7 @@ public class PlayerInteract : MonoBehaviour
     private Rig rig;
     public Transform playerHead;
     public Transform playerTarget;
+    private NPCInteractable NPCInteracting;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class PlayerInteract : MonoBehaviour
                     targetWeight = 1f;
                     playerTarget.position = npcInteractable.npcHead.transform.position;
                     npcInteractable.Interact();
+                    NPCInteracting = npcInteractable;
                 }
             }
         }
@@ -66,6 +68,7 @@ public class PlayerInteract : MonoBehaviour
             targetWeight = 0;
             InworldController.CurrentCharacter.CancelResponse();
             GameManager.Instance.dialogueManager.CloseChat();
+            NPCInteracting.EndInteraction();
         }
     }
 }

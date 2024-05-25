@@ -17,6 +17,102 @@ MonoBehaviour:
   apiSecret: D3zqCczZk3C3m4YW9DEZjMB7euaWiYuFPZH1hDmzzdE3kzjIvffpP1GF5Goqd0PC
   characters:
   - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/azza
+    givenName: Azza
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/azzlet
+    givenName: Azzlet
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/bunpop
+    givenName: bunpop
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/cuddlebug
+    givenName: Cuddlebug
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fanty
+    givenName: Fanty
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/flowerbun
+    givenName: Flowerbun
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fluffkins
+    givenName: Fluffkins
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/fuzzball
+    givenName: Fuzzball
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
     brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/game_master
     givenName: Game Master
     characterAssets:
@@ -25,6 +121,90 @@ MonoBehaviour:
       rpmImageUriPosture: https://storage.googleapis.com/inworld-ai-usercontent-prod/rpm_image/7b23978b-4640-4b45-9753-80318c0b9c2a_posture.jpg
       avatarImg: https://storage.googleapis.com/inworld-ai-usercontent-prod/2d_image/5f67075d-c98e-49e1-b3fe-21cdf967323c.jpg
       avatarImgOriginal: https://storage.googleapis.com/inworld-ai-usercontent-prod/2d_image/5f67075d-c98e-49e1-b3fe-21cdf967323c-original.jpg
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/muffy
+    givenName: Muffy
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/puffdora
+    givenName: Puffdora
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/pufflet
+    givenName: Pufflet
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/purrin
+    givenName: Purrin
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snickerdoodle
+    givenName: Snickerdoodle
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snugglepaws
+    givenName: SnugglePaws
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
+      thumbnailProgress: 0
+      avatarProgress: 0
+    thumbnail: {fileID: 0}
+  - agentId: 
+    brainName: workspaces/default-gbzaq6radu4dchaos811tw/characters/snugglepuff
+    givenName: Snugglepuff
+    characterAssets:
+      rpmModelUri: 
+      rpmImageUriPortrait: 
+      rpmImageUriPosture: 
+      avatarImg: 
+      avatarImgOriginal: 
       thumbnailProgress: 0
       avatarProgress: 0
     thumbnail: {fileID: 0}
