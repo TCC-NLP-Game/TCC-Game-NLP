@@ -1,12 +1,10 @@
-using Inworld;
-using Inworld.Entities;
-using Inworld.Interactions;
-using System.Collections;
+using Convai.Scripts;
+using Convai.Scripts.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class NPCInteractable : InworldInteraction
+public class NPCInteractable : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcNameTextBox;
     private PlayerInteract player;
@@ -32,9 +30,10 @@ public class NPCInteractable : InworldInteraction
 
     public void Interact()
     {
-        InworldController.CurrentCharacter = GetComponent<InworldCharacter>();
-        InworldCharacterData charData = InworldController.CurrentCharacter.Data;
-        npcNameTextBox.text = charData.givenName ?? "Character";
+        ConvaiNPC currentNPC = GetComponent<ConvaiNPC>();
+        ConvaiNPCManager.Instance.SetActiveConvaiNPC(currentNPC);
+        ConvaiNPC charData = ConvaiNPCManager.Instance.GetActiveConvaiNPC();
+        npcNameTextBox.text = charData.characterName ?? "Character";
         GameManager.Instance.dialogueManager.OpenChat();
         targetWeight = 1f;
         npcTarget.position = player.playerHead.transform.position;
@@ -43,14 +42,5 @@ public class NPCInteractable : InworldInteraction
     public void EndInteraction()
     {
         targetWeight = 0f;
-    }
-
-    protected override IEnumerator InteractionCoroutine()
-    {
-        while (true)
-        {
-            yield return RemoveExceedItems();
-            yield return HandleNextUtterance();
-        }
     }
 }
