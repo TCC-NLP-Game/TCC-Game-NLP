@@ -96,7 +96,6 @@ namespace Convai.Scripts.Utils
             if (_currentActiveNPC != null)
             {
                 // _grpcAPI.InterruptCharacterSpeech();
-                _currentActiveNPC.playerInteractionManager.UpdateActionConfig();
                 _currentActiveNPC.StartListening();
                 IncreaseScale();
                 Logger.DebugLog($"{gameObject.name} Was Clicked.", Logger.LogCategory.Character);

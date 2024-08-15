@@ -60,7 +60,6 @@ namespace Convai.Scripts
         [Tooltip("Enable/disable initializing session ID by sending a text request to the server")]
         public bool initializeSessionID = true;
 
-        [HideInInspector] public ConvaiPlayerInteractionManager playerInteractionManager;
         [HideInInspector] public NarrativeDesignManager narrativeDesignManager;
         [HideInInspector] public TriggerUnityEvent onTriggerSent;
         private readonly Queue<GetResponseResponse> _getResponseResponses = new();
@@ -68,8 +67,7 @@ namespace Convai.Scripts
         private Channel _channel;
         private Animator _characterAnimator;
         private ConvaiService.ConvaiServiceClient _client;
-        private ConvaiChatUIHandler _convaiChatUIHandler;
-        private ConvaiCrosshairHandler _convaiCrosshairHandler;
+        private DialogueHandler dialogueHandler;
         private ConvaiGroupNPCController _convaiGroupNPCController;
         private TMP_InputField _currentInputField;
         private bool _groupNPCComponentNotFound;
@@ -141,12 +139,8 @@ namespace Convai.Scripts
             {
                 sessionID = await ConvaiGRPCAPI.InitializeSessionIDAsync(characterName, _client, characterID, sessionID);
             }
-            _convaiChatUIHandler = ConvaiChatUIHandler.Instance;
-        }
-
-        private void Update()
-        {
-            playerInteractionManager.UpdateUserInput();
+            dialogueHandler = DialogueHandler.Instance;
+            //_convaiChatUIHandler = ConvaiChatUIHandler.Instance;
         }
 
         private void OnEnable()
@@ -157,7 +151,7 @@ namespace Convai.Scripts
 
             ConvaiNPCManager.Instance.OnActiveNPCChanged += HandleActiveNPCChanged;
 
-            if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
+            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
         }
 
         private void OnDestroy()
@@ -172,7 +166,7 @@ namespace Convai.Scripts
 
             ConvaiNPCManager.Instance.OnActiveNPCChanged -= HandleActiveNPCChanged;
 
-            if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
+            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
         }
 
         /// <summary>
@@ -186,8 +180,8 @@ namespace Convai.Scripts
 
         private void OnValidate()
         {
-            _convaiChatUIHandler = ConvaiChatUIHandler.Instance;
-            if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
+            //_convaiChatUIHandler = ConvaiChatUIHandler.Instance;
+            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
         }
 
         public async void TriggerEvent(string triggerName, string triggerMessage = "")
@@ -214,21 +208,17 @@ namespace Convai.Scripts
 
         private void HandleActiveNPCChanged(ConvaiNPC newActiveNPC)
         {
-            Debug.Log("New: " + newActiveNPC, this);
             // If this NPC is no longer the active NPC, interrupt its speech
-            if (this != newActiveNPC && !IsInConversationWithAnotherNPC && ConvaiInputManager.Instance.WasTalkKeyPressed()) InterruptCharacterSpeech();
+            if (this != newActiveNPC && !IsInConversationWithAnotherNPC) InterruptCharacterSpeech();
         }
 
 
         private void InitializeComponents()
         {
-            _convaiChatUIHandler = FindObjectOfType<ConvaiChatUIHandler>();
-            _convaiCrosshairHandler = FindObjectOfType<ConvaiCrosshairHandler>();
             _characterAnimator = GetComponent<Animator>();
             AudioManager = gameObject.AddComponent<ConvaiNPCAudioManager>();
             narrativeDesignManager = GetComponent<NarrativeDesignManager>();
 
-            InitializePlayerInteractionManager();
             InitializeLipSync();
             StartCoroutine(InitializeActionsHandler());
         }
@@ -245,12 +235,6 @@ namespace Convai.Scripts
             }
         }
 
-        private void InitializePlayerInteractionManager()
-        {
-            playerInteractionManager = gameObject.AddComponent<ConvaiPlayerInteractionManager>();
-            playerInteractionManager.Initialize(this, _convaiCrosshairHandler, _convaiChatUIHandler);
-        }
-
         private void InitializeLipSync()
         {
             convaiLipSync = GetComponent<ConvaiLipSync>();
@@ -264,7 +248,7 @@ namespace Convai.Scripts
 
         private void HandleAudioTranscriptAvailable(string transcript)
         {
-            if (isCharacterActive) _convaiChatUIHandler.SendCharacterText(characterName, transcript);
+            //if (isCharacterActive) _convaiChatUIHandler.SendCharacterText(characterName, transcript);
         }
 
         /// <summary>
@@ -295,7 +279,6 @@ namespace Convai.Scripts
         {
             try
             {
-                Debug.Log("SendTextAsync" + ConvaiGRPCAPI.Instance);
                 await ConvaiGRPCAPI.Instance.SendTextData(_client, text, characterID,
                     _isActionActive, _isLipSyncActive, ActionConfig, FaceModel);
             }
@@ -375,6 +358,7 @@ namespace Convai.Scripts
                         {
                             // Initialize empty string for text
                             string textDataString = getResponseResponse.AudioResponse.TextData;
+                            if (textDataString == "") return;
 
                             byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
 
@@ -388,6 +372,7 @@ namespace Convai.Scripts
                                 AudioTranscript = textDataString,
                                 IsFinal = false
                             });
+                            dialogueHandler.SendText(textDataString);
                         }
                         else if (getResponseResponse.AudioResponse.EndOfResponse)
                         {
@@ -431,6 +416,7 @@ namespace Convai.Scripts
                 Logger.Info($"Character {characterName} is talking: {isTalking}", Logger.LogCategory.Character);
                 IsCharacterTalking = isTalking;
                 OnCharacterTalking?.Invoke(IsCharacterTalking);
+                dialogueHandler.FinishResponse();
             }
         }
 

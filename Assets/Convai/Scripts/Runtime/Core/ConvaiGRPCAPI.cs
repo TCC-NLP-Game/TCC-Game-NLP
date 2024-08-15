@@ -229,10 +229,8 @@ namespace Convai.Scripts.Utils
         public async Task SendTextData(ConvaiService.ConvaiServiceClient client, string userText, string characterID, bool isActionActive, bool isLipSyncActive,
             ActionConfig actionConfig, FaceModel faceModel)
         {
-            Debug.Log("Client: " + client);
             AsyncDuplexStreamingCall<GetResponseRequest, GetResponseResponse> call =
                 GetAsyncDuplexStreamingCallOptions(client);
-            Debug.Log("Client later: " + client);
 
             GetResponseRequest getResponseConfigRequest = CreateGetResponseRequest(
                 isActionActive,

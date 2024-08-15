@@ -78,7 +78,7 @@ public class TalkButtonDurationChecker : MonoBehaviour
             return;
         }
 
-        _activeInputField = convaiNpc.playerInteractionManager.FindActiveInputField();
+        //_activeInputField = convaiNpc.playerInteractionManager.FindActiveInputField();
     }
 
     private void UIAppearanceSettings_OnAppearanceChanged()
@@ -90,7 +90,7 @@ public class TalkButtonDurationChecker : MonoBehaviour
             return;
         }
 
-        _activeInputField = convaiNpc.playerInteractionManager.FindActiveInputField();
+        //_activeInputField = convaiNpc.playerInteractionManager.FindActiveInputField();
     }
 
     /// <summary>
