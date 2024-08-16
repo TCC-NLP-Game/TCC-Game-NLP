@@ -14803,6 +14803,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 553187643}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 553187645}
   m_SourcePrefab: {fileID: 100100000, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
 --- !u!4 &553187629 stripped
 Transform:
@@ -15136,6 +15139,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &553187645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553187630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d56bc33052944e0aba5a0fe7073c3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectionChangeEventsDataList:
+  - id: db593e2e-5bee-11ef-9377-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: 5c0d57e0-5bee-11ef-8d81-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: ddd46764-5bee-11ef-80ab-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: e93af6aa-5c01-11ef-ab45-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  sectionDataList:
+  - sectionId: db593e2e-5bee-11ef-9377-42010a7be011
+    sectionName: Talk about Big Vegas
+    behaviorTreeConstants: 
+    objective: Amy talks about Big Vegas, hesitating, and how mysterious he is. She
+      says that maybe Mousey can help the player, if the player say their secret
+      word "Cheddar"
+    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+  - sectionId: 5c0d57e0-5bee-11ef-8d81-42010a7be011
+    sectionName: Welcome
+    behaviorTreeConstants: 
+    objective: She talks about the place and ETs around, she talk about Big Vegas,
+      but hesitates. She doesn't like him, because he is always... Thinking...
+    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+  - sectionId: ddd46764-5bee-11ef-80ab-42010a7be011
+    sectionName: Move to other topic
+    behaviorTreeConstants: 
+    objective: She talk with so much energy about the ETs
+    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+  - sectionId: e93af6aa-5c01-11ef-ab45-42010a7be011
+    sectionName: Warn Stay Away
+    behaviorTreeConstants: 
+    objective: 'The player inform about the strange behavior of Big Vegas.  Amy say
+      that the world is beautiful and try to change the topic, asking to leave Big
+      Vegas alone.
+
+      Amy suggests the player to see if there is nothing in the
+      cemetery as a tip, but just if he''s not afraid to disappear too.'
+    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+  triggerDataList:
+  - triggerId: e32461f2-5c01-11ef-8876-42010a7be011
+    triggerName: warn_stay_away
+    triggerMessage: 'The player inform about the strange behavior of Big Vegas.  '
+    destinationSection: e93af6aa-5c01-11ef-ab45-42010a7be011
+    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
 --- !u!4 &553609918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
@@ -17546,62 +17625,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1798490669}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 289.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 204.76
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -189.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9291326
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.36974674
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 43.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
-      propertyPath: m_Name
-      value: Mousey
-      objectReference: {fileID: 0}
     - target: {fileID: -7396561535389951827, guid: d701b3870cdef1f40823216d619c3624, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -17754,6 +17777,62 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9596629b792feaf41893429551125699, type: 2}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 289.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 204.76
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -189.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9291326
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.36974674
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 43.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      propertyPath: m_Name
+      value: Mousey
+      objectReference: {fileID: 0}
     - target: {fileID: -8496879035693090889, guid: 7468f39152b38f246b3c1e9415b0f72e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25835705
@@ -18427,6 +18506,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697896772}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 697896774}
   m_SourcePrefab: {fileID: 100100000, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
 --- !u!4 &697896761 stripped
 Transform:
@@ -18755,6 +18837,65 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &697896774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697896762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d56bc33052944e0aba5a0fe7073c3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectionChangeEventsDataList:
+  - id: c79b618e-5c00-11ef-aed1-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: 62924f86-5c01-11ef-8876-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  sectionDataList:
+  - sectionId: c79b618e-5c00-11ef-aed1-42010a7be011
+    sectionName: Secret Word
+    behaviorTreeConstants: 
+    objective: Player says the secret word "Cheddar", informed by Amy, to let him
+      talk about Big Vegas and he says that the best friend of Big Vegas died in
+      the cemetery and, since it was his best friend, he stopped to talk with other
+      people
+    characterId: 475e9eaa-5b6a-11ef-9a2d-42010a7be011
+  - sectionId: 62924f86-5c01-11ef-8876-42010a7be011
+    sectionName: Warn Stay Away
+    behaviorTreeConstants: 
+    objective: The player inform about the strange behavior of Big Vegas.  Mousey
+      say that the world is beautiful and try to change the topic, asking to leave
+      Big Vegas alone. he says that his best friend went alone in the cemetery and
+      never come back.
+    characterId: 475e9eaa-5b6a-11ef-9a2d-42010a7be011
+  triggerDataList:
+  - triggerId: c6957e0a-5c00-11ef-abad-42010a7be011
+    triggerName: say_secret_word
+    triggerMessage: Player says the secret word "Cheddar", informed by Amy, to let
+      him talk about Big Vegas and he says that the best friend of Big Vegas died
+      in the cemetery and, since it was his best friend, he stopped to talk with
+      other people
+    destinationSection: c79b618e-5c00-11ef-aed1-42010a7be011
+    characterId: 475e9eaa-5b6a-11ef-9a2d-42010a7be011
+  - triggerId: 4269f6a0-5c01-11ef-9885-42010a7be011
+    triggerName: stay_away
+    triggerMessage: Player talks about the strange behavior of Big Vegas warning
+      him to stay away from cemetery
+    destinationSection: 62924f86-5c01-11ef-8876-42010a7be011
+    characterId: 475e9eaa-5b6a-11ef-9a2d-42010a7be011
 --- !u!4 &698328360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7602194810454603475, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -26667,6 +26808,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 889191824}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 889191826}
   m_SourcePrefab: {fileID: 100100000, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
 --- !u!4 &889191813 stripped
 Transform:
@@ -26985,6 +27129,69 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &889191826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889191814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d56bc33052944e0aba5a0fe7073c3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sectionChangeEventsDataList:
+  - id: e0f7ca28-5bf1-11ef-9377-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: 890a26ba-5c02-11ef-8a51-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: 1e342246-5c0c-11ef-a30d-42010a7be011
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  sectionDataList:
+  - sectionId: e0f7ca28-5bf1-11ef-9377-42010a7be011
+    sectionName: Warn about cemetery
+    behaviorTreeConstants: 
+    objective: Big Vegas stops to say just "..." and warn the player, very angry,
+      to the player never go to the cemetery again.
+    characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
+  - sectionId: 890a26ba-5c02-11ef-8a51-42010a7be011
+    sectionName: Receive Letter
+    behaviorTreeConstants: 
+    objective: 'Big Vegas see that the letter received is assigned by his best friend,
+      and read aloud what is written: "In the thumb", but Big Vegas doesn''t understand.'
+    characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
+  - sectionId: 1e342246-5c0c-11ef-a30d-42010a7be011
+    sectionName: Start
+    behaviorTreeConstants: 
+    objective: Big Vegas is mysterious and just say "..."
+    characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
+  triggerDataList:
+  - triggerId: 88065086-5c02-11ef-aed1-42010a7be011
+    triggerName: receive_letter
+    triggerMessage: The player gives a letter to Big Vegas
+    destinationSection: 890a26ba-5c02-11ef-8a51-42010a7be011
+    characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
+  - triggerId: 598d16e0-5c0c-11ef-b3ec-42010a7be011
+    triggerName: warn_cemetery
+    triggerMessage: The player reached the cemetery phisically.
+    destinationSection: 
+    characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
 --- !u!4 &890372220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5038731197205241680, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -43328,6 +43535,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5507607962461701453, guid: d701b3870cdef1f40823216d619c3624, type: 3}
   m_PrefabInstance: {fileID: 1939394263}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1510171423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510171425}
+  - component: {fileID: 1510171424}
+  - component: {fileID: 1510171426}
+  m_Layer: 0
+  m_Name: CemeteryCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1510171424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510171423}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 80, y: 20, z: 80}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1510171425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510171423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.5, y: 12.8, z: 199.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510171426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510171423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c783ed73e64a204ebf38b93c054b566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convaiNPC: {fileID: 889191824}
+  selectedTriggerIndex: 1
+  availableTriggers:
+  - receive_letter
+  - warn_cemetery
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1510878615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3328711411752606467, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -52945,7 +53226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982024026}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13650893, y: -0.000000009920359, z: 0.0000000013670144, w: 0.99063885}
+  m_LocalRotation: {x: 0.13650894, y: 0.000000049953876, z: -0.000000006883589, w: 0.99063885}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56122,3 +56403,4 @@ SceneRoots:
   - {fileID: 963556559}
   - {fileID: 1798490669}
   - {fileID: 1317348552}
+  - {fileID: 1510171425}
