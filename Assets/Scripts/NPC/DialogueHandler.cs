@@ -5,6 +5,7 @@ public class DialogueHandler: MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcTextBox;
     [SerializeField] protected TMP_InputField inputField;
+    private string text = "";
 
     public static DialogueHandler Instance { get; private set; }
 
@@ -33,12 +34,14 @@ public class DialogueHandler: MonoBehaviour
     public void SendText(string textData)
     {
         GameManager.Instance.dialogueManager.SetIsClosable(true);
-        npcTextBox.text = textData;
+        text += textData + " ";
+        npcTextBox.text = text;
     }
 
 
     public void FinishResponse()
     {
+        text = "";
         inputField.text = "";
         inputField.interactable = true;
         inputField.ActivateInputField();
