@@ -1,3 +1,5 @@
+using Convai.Scripts;
+using Convai.Scripts.Utils;
 using Inworld;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -66,7 +68,7 @@ public class PlayerInteract : MonoBehaviour
         if (CanDialogueBeClosed() && Input.GetKeyDown(KeyCode.Escape))
         {
             targetWeight = 0;
-            InworldController.CurrentCharacter.CancelResponse();
+            // InworldController.CurrentCharacter.CancelResponse();
             GameManager.Instance.dialogueManager.CloseChat();
             NPCInteracting.EndInteraction();
         }

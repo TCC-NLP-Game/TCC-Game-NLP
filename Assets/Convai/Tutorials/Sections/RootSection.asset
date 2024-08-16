@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89305aa391d1c5141bbe1628d930a2c5, type: 3}
+  m_Name: RootSection
+  m_EditorClassIdentifier: 
+  Modified:
+    m_PersistentCalls:
+      m_Calls: []
+  ParentContainer: {fileID: 0}
+  OrderInView: 0
+  BackgroundImage: {fileID: 2800000, guid: fce2f095c633ca14f9c4e7305a104ce9, type: 3}
+  Title:
+    m_Untranslated: Convai SDK
+  Subtitle:
+    m_Untranslated: Learn more about
+  Description:
+    m_Untranslated: Learn more about the Convai SDK.
+  ProjectLayout: {fileID: 102900000, guid: 5e081507e2933e14d9dcaec83a20d2f9, type: 3}
+  Sections:
+  - OrderInView: 0
+    Heading:
+      m_Untranslated: Documentation
+    Text:
+      m_Untranslated: Explore detailed documentation for a comprehensive understanding
+        of our plugin's features, functions, and implementation guidelines.
+    Metadata: 
+    Url: https://docs.convai.com/api-docs/plugins-and-integrations/unity-plugin
+    Image: {fileID: 2800000, guid: bfbf99c8c84818f4eae09ff2ede2af66, type: 3}
+    Tutorial: {fileID: 0}
+  - OrderInView: 1
+    Heading:
+      m_Untranslated: Youtube Tutorials
+    Text:
+      m_Untranslated: Watch step-by-step video tutorials on our official YouTube
+        channel to learn how to make the most of our plugin's capabilities and enhance
+        your user experience.
+    Metadata: 
+    Url: https://www.youtube.com/@convai
+    Image: {fileID: 2800000, guid: f5c32c81259e7b74d854c8ff3bce168a, type: 3}
+    Tutorial: {fileID: 0}
+  - OrderInView: 2
+    Heading:
+      m_Untranslated: Discord Community
+    Text:
+      m_Untranslated: Join our vibrant Discord community to connect with fellow users,
+        share experiences, seek help, and stay updated on the latest plugin updates,
+        announcements, and discussions.
+    Metadata: 
+    Url: https://discord.gg/m9P2zm29m2
+    Image: {fileID: 2800000, guid: adfb5f17051295642b9f1ea75d57cc17, type: 3}
+    Tutorial: {fileID: 0}
+  - OrderInView: 3
+    Heading:
+      m_Untranslated: Contact Us
+    Text:
+      m_Untranslated: Need assistance or have specific inquiries? Reach out to us
+        directly through our contact page. We're here to provide prompt and helpful
+        support, including discussions related to partnerships and pricing, to ensure
+        a seamless experience with our plugin.
+    Metadata: 
+    Url: https://convai.com/contact
+    Image: {fileID: 2800000, guid: 595a4537beb83af4ab404dcfd10e47a4, type: 3}
+    Tutorial: {fileID: 0}

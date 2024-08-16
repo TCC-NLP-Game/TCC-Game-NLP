@@ -646,7 +646,23 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: INWORLD_DEBUG
+    Android: READY_PLAYER_ME
+    EmbeddedLinux: READY_PLAYER_ME
+    GameCoreScarlett: READY_PLAYER_ME
+    GameCoreXboxOne: READY_PLAYER_ME
+    LinuxHeadlessSimulation: READY_PLAYER_ME
+    Nintendo Switch: READY_PLAYER_ME
+    PS4: READY_PLAYER_ME
+    PS5: READY_PLAYER_ME
+    QNX: READY_PLAYER_ME
+    Stadia: READY_PLAYER_ME
+    Standalone: INWORLD_DEBUG;READY_PLAYER_ME
+    VisionOS: READY_PLAYER_ME
+    WebGL: READY_PLAYER_ME
+    Windows Store Apps: READY_PLAYER_ME
+    XboxOne: READY_PLAYER_ME
+    iPhone: READY_PLAYER_ME
+    tvOS: READY_PLAYER_ME
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -752,7 +768,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 5c11b9ae-90b9-462f-95b3-f7ce96d69669
   framebufferDepthMemorylessMode: 0

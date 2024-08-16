@@ -1,69 +1,47 @@
 using UnityEngine;
 using TMPro;
-using Inworld.Packet;
-using Inworld;
 
 public class DialogueHandler: MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI npcTextBox;
     [SerializeField] protected TMP_InputField inputField;
+    private string text = "";
+
+    public static DialogueHandler Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void OnEnable()
     {
         inputField.interactable = true;
         inputField.ActivateInputField();
-        InworldController.Instance.OnCharacterInteraction += OnInteraction;
     }
+
 
     private void OnDisable()
     {
         npcTextBox.text = "";
-        if (!InworldController.Instance)
-            return;
-        InworldController.Instance.OnCharacterInteraction -= OnInteraction;
     }
 
-    private void OnInteraction(InworldPacket incomingPacket)
+    public void SendText(string textData)
     {
         GameManager.Instance.dialogueManager.SetIsClosable(true);
-        switch (incomingPacket)
-        {
-            case EmotionPacket:
-                HandleEmotion();
-                break;
-            case TextPacket textPacket:
-                HandleText(textPacket);
-                break;
-            case ControlPacket:
-                HandleControl();
-                break;
-            case AudioPacket:
-                break;
-            default:
-                InworldAI.LogWarning($"Received unknown {incomingPacket.type}");
-                break;
-        }
+        text += textData + " ";
+        npcTextBox.text = text;
     }
 
-    private void HandleText(TextPacket textPacket)
-    {
-        string whoIsTalking = textPacket.routing.source.type.ToUpper();
-        string content = textPacket.text.text;
-        switch (whoIsTalking)
-        {
-            case "AGENT":
-                npcTextBox.text = content;
-                break;
-        }
-    }
 
-    private void HandleEmotion()
+    public void FinishResponse()
     {
-        return; // Handled by children
-    }
-
-    private void HandleControl()
-    {
+        text = "";
         inputField.text = "";
         inputField.interactable = true;
         inputField.ActivateInputField();

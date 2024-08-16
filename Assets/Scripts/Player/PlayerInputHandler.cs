@@ -1,11 +1,12 @@
-using Inworld;
+using Convai.Scripts;
+using Convai.Scripts.Utils;
 using TMPro;
 using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] protected TMP_InputField inputField;
-    private Animator animator;
+    private Animator animator;  
 
     private void Start()
     {
@@ -26,21 +27,12 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void SendText()
     {
-        if (string.IsNullOrEmpty(inputField.text) || !InworldController.CurrentCharacter)
+        ConvaiNPC currentCharacter = ConvaiNPCManager.Instance.GetActiveConvaiNPC();
+        if (string.IsNullOrEmpty(inputField.text) || !currentCharacter)
             return;
-        try
-        {
-            if (InworldController.CurrentCharacter)
-            {
-                animator.Play("Talk");
-                InworldController.CurrentCharacter.SendText(inputField.text);
-                inputField.interactable = false;
-                GameManager.Instance.dialogueManager.SetIsClosable(false);
-            }
-        }
-        catch (InworldException error)
-        {
-            InworldAI.LogWarning($"Failed to send texts: {error}");
-        }
+        animator.Play("Talk");
+        currentCharacter.SendTextDataAsync(inputField.text);
+        inputField.interactable = false;
+        GameManager.Instance.dialogueManager.SetIsClosable(false);
     }
 }

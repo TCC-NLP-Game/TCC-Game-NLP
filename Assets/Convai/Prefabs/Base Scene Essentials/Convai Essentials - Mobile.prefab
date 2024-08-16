@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3551657954286493688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 246956433483458158, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 249923129974111633, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 474997785741654988, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 3269069509355320090, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 3610757981640571484, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 3610757981640571484, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Name
+      value: Convai Essentials - Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860815770190229723, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    - target: {fileID: 4453598788696028136, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: PlayerMovementKeyAction.m_SingletonActionBindings.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453598788696028136, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: PlayerMovementKeyAction.m_SingletonActionBindings.Array.data[10].m_Id
+      value: 5d726529-bd43-4174-9f0d-4e4a2399e39b
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453598788696028136, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: PlayerMovementKeyAction.m_SingletonActionBindings.Array.data[10].m_Path
+      value: <Touchscreen>/primaryTouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453598788696028136, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: PlayerMovementKeyAction.m_SingletonActionBindings.Array.data[10].m_Action
+      value: Player Movement Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260753959023308940, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088704723449812544, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: chatBoxPrefab
+      value: 
+      objectReference: {fileID: 935179711874531315, guid: d8061b9ccae9b5549b1bf7320ee6db57,
+        type: 3}
+    - target: {fileID: 7088704723449812544, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: subtitlePrefab
+      value: 
+      objectReference: {fileID: 7755362446327289511, guid: df99754fdcd54fc4b84d3d1792438a04,
+        type: 3}
+    - target: {fileID: 7088704723449812544, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: questionAnswerPrefab
+      value: 
+      objectReference: {fileID: 6883166235003588225, guid: 0c55fe111879aef40aa3a37f0aceaf8d,
+        type: 3}
+    - target: {fileID: 8995187496934191307, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995187496934191311, guid: 69dd98fa71bd5e649969b163d693f61b,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 6bf5e2cc6144a3b408a06e7d9543c20e, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69dd98fa71bd5e649969b163d693f61b, type: 3}
