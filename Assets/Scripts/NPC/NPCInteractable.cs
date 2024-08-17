@@ -12,6 +12,7 @@ public class NPCInteractable : MonoBehaviour
     public Transform npcTarget;
     private Rig rig;
     private float targetWeight;
+    public bool canReceiveLetter = false;
 
     private void Awake()
     {
@@ -28,15 +29,24 @@ public class NPCInteractable : MonoBehaviour
         rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         ConvaiNPC currentNPC = GetComponent<ConvaiNPC>();
         ConvaiNPCManager.Instance.SetActiveConvaiNPC(currentNPC);
         ConvaiNPC charData = ConvaiNPCManager.Instance.GetActiveConvaiNPC();
+        HandleExtraActions(charData);
         npcNameTextBox.text = charData.characterName ?? "Character";
         GameManager.Instance.dialogueManager.OpenChat();
         targetWeight = 1f;
         npcTarget.position = player.playerHead.transform.position;
+    }
+
+    private void HandleExtraActions(ConvaiNPC currentNPC)
+    {
+        if (canReceiveLetter && PlayerInventory.Instance.PlayerHasLetter())
+        {
+            PlayerInventory.Instance.GiveLetter(currentNPC);
+        }
     }
 
     public void EndInteraction()

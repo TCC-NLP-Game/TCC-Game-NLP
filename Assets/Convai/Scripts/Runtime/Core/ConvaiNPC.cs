@@ -346,47 +346,43 @@ namespace Convai.Scripts
         private void ProcessResponse()
         {
             // Check if the character is active and should process the response
-            if (isCharacterActive || IsInConversationWithAnotherNPC)
-                if (_getResponseResponses.Count > 0)
+            if (!isCharacterActive && !IsInConversationWithAnotherNPC) return;
+            if (_getResponseResponses.Count <= 0) return;
+            GetResponseResponse getResponseResponse = _getResponseResponses.Dequeue();
+            bool isDialogueOpen = GameManager.Instance.dialogueManager.isDialogueOpen;
+            if (getResponseResponse?.AudioResponse == null || !isDialogueOpen) return;
+            // Check if text data exists in the response
+            if (getResponseResponse.AudioResponse.AudioData.ToByteArray().Length > 46)
+            {
+                // Initialize empty string for text
+                string textDataString = getResponseResponse.AudioResponse.TextData;
+                if (textDataString == "") return;
+
+                byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
+
+                AudioClip clip = AudioManager.ProcessByteAudioDataToAudioClip(byteAudio,
+                    getResponseResponse.AudioResponse.AudioConfig.SampleRateHertz.ToString());
+
+                // Add the response audio along with associated data to the list
+                AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
                 {
-                    GetResponseResponse getResponseResponse = _getResponseResponses.Dequeue();
-
-                    if (getResponseResponse?.AudioResponse != null)
-                    {
-                        // Check if text data exists in the response
-                        if (getResponseResponse.AudioResponse.AudioData.ToByteArray().Length > 46)
-                        {
-                            // Initialize empty string for text
-                            string textDataString = getResponseResponse.AudioResponse.TextData;
-                            if (textDataString == "") return;
-
-                            byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
-
-                            AudioClip clip = AudioManager.ProcessByteAudioDataToAudioClip(byteAudio,
-                                getResponseResponse.AudioResponse.AudioConfig.SampleRateHertz.ToString());
-
-                            // Add the response audio along with associated data to the list
-                            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
-                            {
-                                AudioClip = clip,
-                                AudioTranscript = textDataString,
-                                IsFinal = false
-                            });
-                            dialogueHandler.SendText(textDataString);
-                        }
-                        else if (getResponseResponse.AudioResponse.EndOfResponse)
-                        {
-                            Logger.DebugLog("We have received end of response", Logger.LogCategory.LipSync);
-                            // Handle the case where there is a DebugLog but no audio response
-                            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
-                            {
-                                AudioClip = null,
-                                AudioTranscript = null,
-                                IsFinal = true
-                            });
-                        }
-                    }
-                }
+                    AudioClip = clip,
+                    AudioTranscript = textDataString,
+                    IsFinal = false
+                });
+                dialogueHandler.SendText(textDataString);
+            }
+            else if (getResponseResponse.AudioResponse.EndOfResponse)
+            {
+                Logger.DebugLog("We have received end of response", Logger.LogCategory.LipSync);
+                // Handle the case where there is a DebugLog but no audio response
+                AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
+                {
+                    AudioClip = null,
+                    AudioTranscript = null,
+                    IsFinal = true
+                });
+            }
         }
 
         public int GetAudioResponseCount()
