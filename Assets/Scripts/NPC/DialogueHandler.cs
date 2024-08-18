@@ -33,7 +33,6 @@ public class DialogueHandler: MonoBehaviour
 
     public void SendText(string textData)
     {
-        GameManager.Instance.dialogueManager.SetIsClosable(true);
         text += textData + " ";
         npcTextBox.text = text;
     }
@@ -41,6 +40,7 @@ public class DialogueHandler: MonoBehaviour
 
     public void FinishResponse()
     {
+        GameManager.Instance.dialogueManager.SetIsClosable(true);
         text = "";
         inputField.text = "";
         inputField.interactable = true;

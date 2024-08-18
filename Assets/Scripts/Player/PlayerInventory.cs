@@ -28,6 +28,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void GiveLetter(ConvaiNPC currentNPC)
     {
-        currentNPC.TriggerEvent("Receive Letter");
+        currentNPC.TriggerEvent("receive_letter");
     }
 }

@@ -9,13 +9,13 @@ public class MouseyTriggers : MonoBehaviour
     public void WarnStartAway()
     {
         ConvaiNPCManager.Instance.SetActiveConvaiNPC(npc);
-        npc.TriggerEvent("Warn Stay Away");
+        npc.TriggerEvent("warn_stay_away");
     }
 
     public void SecretWord()
     {
         ConvaiNPCManager.Instance.SetActiveConvaiNPC(npc);
-        npc.TriggerEvent("Secret Word");
+        npc.TriggerEvent("secret_word");
     }
 
 }

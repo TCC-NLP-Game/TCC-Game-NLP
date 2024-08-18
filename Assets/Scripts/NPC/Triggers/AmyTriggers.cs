@@ -9,7 +9,7 @@ public class AmyTriggers : MonoBehaviour
     public void WarnStartAway()
     {
         ConvaiNPCManager.Instance.SetActiveConvaiNPC(npc);
-        npc.TriggerEvent("Warn Stay Away");
+        npc.TriggerEvent("warn_stay_away");
     }
 
 }

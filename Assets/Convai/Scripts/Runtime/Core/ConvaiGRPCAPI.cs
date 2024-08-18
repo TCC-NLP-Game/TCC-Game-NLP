@@ -560,7 +560,6 @@ namespace Convai.Scripts.Utils
         private async Task ReceiveResultFromServer(AsyncDuplexStreamingCall<GetResponseRequest, GetResponseResponse> call, CancellationToken cancellationToken)
         {
             Queue<LipSyncBlendFrameData> lipSyncBlendFrameQueue = new();
-            bool firstSilFound = false;
             while (!cancellationToken.IsCancellationRequested && await call.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false))
                 try
                 {
@@ -584,7 +583,8 @@ namespace Convai.Scripts.Utils
                             _activeConvaiNPC.actionsHandler.actionResponseList.Add(result.ActionResponse.Action);
 
                     // Add audio response to the list in the active NPC
-                    if (result.AudioResponse != null)
+                    bool isInDialogue = GameManager.Instance.dialogueManager.isDialogueOpen;
+                    if (result.AudioResponse != null && isInDialogue)
                     {
                         if (result.AudioResponse.AudioData != null)
                         {

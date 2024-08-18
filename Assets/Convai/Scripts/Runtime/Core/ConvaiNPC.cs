@@ -113,7 +113,6 @@ namespace Convai.Scripts
         {
             AudioManager.OnCharacterTalkingChanged += SetCharacterTalking;
             AudioManager.OnAudioTranscriptAvailable += HandleAudioTranscriptAvailable;
-            AudioManager.OnCharacterTalkingChanged += SetCharacterTalking;
 
             ConvaiNPCManager.Instance.OnActiveNPCChanged += HandleActiveNPCChanged;
         }
@@ -202,7 +201,7 @@ namespace Convai.Scripts
             try
             {
                 await ConvaiGRPCAPI.Instance.SendTextData(_client, text, characterID,
-                    _isActionActive, false, ActionConfig, FaceModel.OvrModelName);
+                    _isActionActive, true, ActionConfig, FaceModel.OvrModelName);
             }
             catch (Exception ex)
             {
@@ -319,7 +318,10 @@ namespace Convai.Scripts
                 Logger.Info($"Character {characterName} is talking: {isTalking}", Logger.LogCategory.Character);
                 IsCharacterTalking = isTalking;
                 OnCharacterTalking?.Invoke(IsCharacterTalking);
-                dialogueHandler.FinishResponse();
+                if (!isTalking)
+                { 
+                    dialogueHandler.FinishResponse();
+                }
             }
         }
 
