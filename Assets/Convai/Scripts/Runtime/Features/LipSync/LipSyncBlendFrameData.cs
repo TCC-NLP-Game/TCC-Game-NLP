@@ -44,16 +44,6 @@ namespace Convai.Scripts.Utils.LipSync
         {
             if (!_partiallyProcessed)
                 npc.EnqueueResponse(_getResponseResponse);
-            switch (_frameType)
-            {
-                case FrameType.Visemes:
-                    npc.convaiLipSync.ConvaiLipSyncApplicationBase.EnqueueQueue(new Queue<VisemesData>(_visemesFrames));
-                    break;
-                case FrameType.Blendshape:
-                    npc.convaiLipSync.ConvaiLipSyncApplicationBase.EnqueueQueue(new Queue<BlendshapeFrame>(_blendShapeFrames));
-                    break;
-            }
-
             npc.AudioManager.SetWaitForCharacterLipSync(false);
         }
 
@@ -64,22 +54,6 @@ namespace Convai.Scripts.Utils.LipSync
                 _partiallyProcessed = true;
                 npc.EnqueueResponse(_getResponseResponse);
                 npc.AudioManager.SetWaitForCharacterLipSync(false);
-            }
-
-            switch (_frameType)
-            {
-                case FrameType.Visemes:
-                    while (_visemesFrames.Count != 0)
-                    {
-                        npc.convaiLipSync.ConvaiLipSyncApplicationBase.EnqueueFrame(_visemesFrames.Dequeue());
-                    }
-                    break;
-                case FrameType.Blendshape:
-                    while (_blendShapeFrames.Count != 0)
-                    {
-                        npc.convaiLipSync.ConvaiLipSyncApplicationBase.EnqueueFrame(_blendShapeFrames.Dequeue());
-                    }
-                    break;
             }
         }
 

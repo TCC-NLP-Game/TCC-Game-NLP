@@ -154,65 +154,10 @@ namespace Convai.Scripts.Utils
 
                                 // will only work for wav files
                                 WavHeaderParser parser = new(wavBytes);
-                                if (convaiNPC.convaiLipSync == null)
-                                {
-                                    Logger.DebugLog($"Enqueuing responses: {result.AudioResponse.TextData}", Logger.LogCategory.LipSync);
-                                    convaiNPC.EnqueueResponse(result);
-                                }
-                                else
-                                {
-                                    LipSyncBlendFrameData.FrameType frameType =
-                                        convaiNPC.convaiLipSync.faceModel == FaceModel.OvrModelName
-                                            ? LipSyncBlendFrameData.FrameType.Visemes
-                                            : LipSyncBlendFrameData.FrameType.Blendshape;
-                                    lipSyncBlendFrameQueue.Enqueue(
-                                        new LipSyncBlendFrameData(
-                                            (int)(parser.CalculateDurationSeconds() * 30),
-                                            result,
-                                            frameType
-                                        )
-                                    );
-                                }
+                                Logger.DebugLog($"Enqueuing responses: {result.AudioResponse.TextData}", Logger.LogCategory.LipSync);
+                                convaiNPC.EnqueueResponse(result);
                             }
 
-                            if (result.AudioResponse.VisemesData != null)
-                            {
-                                if (convaiNPC.convaiLipSync != null)
-                                {
-                                    //Logger.Info(result.AudioResponse.VisemesData, Logger.LogCategory.LipSync);
-
-                                    if (result.AudioResponse.VisemesData.Visemes.Sil == -2 || result.AudioResponse.EndOfResponse)
-                                    {
-                                        if (firstSilFound)
-                                        {
-                                            lipSyncBlendFrameQueue.Dequeue().Process(convaiNPC);
-                                        }
-                                        firstSilFound = true;
-                                    }
-                                    else
-                                        lipSyncBlendFrameQueue.Peek().Enqueue(result.AudioResponse.VisemesData);
-                                }
-                            }
-
-                            if (result.AudioResponse.BlendshapesFrame != null)
-                            {
-                                if (convaiNPC.convaiLipSync != null)
-                                {
-                                    if (lipSyncBlendFrameQueue.Peek().CanProcess() || result.AudioResponse.EndOfResponse)
-                                    {
-                                        lipSyncBlendFrameQueue.Dequeue().Process(convaiNPC);
-                                    }
-                                    else
-                                    {
-                                        lipSyncBlendFrameQueue.Peek().Enqueue(result.AudioResponse.BlendshapesFrame);
-
-                                        if (lipSyncBlendFrameQueue.Peek().CanPartiallyProcess())
-                                        {
-                                            lipSyncBlendFrameQueue.Peek().ProcessPartially(convaiNPC);
-                                        }
-                                    }
-                                }
-                            }
 
                             if (result.AudioResponse.EndOfResponse)
                             {

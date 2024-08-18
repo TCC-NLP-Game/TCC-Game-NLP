@@ -6123,6 +6123,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1075022600}
   npcTarget: {fileID: 1828915929}
+  canReceiveLetter: 0
 --- !u!136 &341348570
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6334,7 +6335,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -8133,6 +8133,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 632935086}
   npcTarget: {fileID: 802733994}
+  canReceiveLetter: 0
 --- !u!136 &421820371
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8344,7 +8345,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -9659,6 +9659,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 2126040014}
   npcTarget: {fileID: 368005918}
+  canReceiveLetter: 0
 --- !u!136 &446238445
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9882,7 +9883,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -11590,6 +11590,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1814485029}
   npcTarget: {fileID: 1667052592}
+  canReceiveLetter: 0
 --- !u!136 &487126715
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11801,7 +11802,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -12720,6 +12720,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1574802266}
   npcTarget: {fileID: 1029948825}
+  canReceiveLetter: 0
 --- !u!136 &495482148
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12931,7 +12932,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -14671,6 +14671,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 553187645}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 553187646}
   m_SourcePrefab: {fileID: 100100000, guid: ca8c0d31906241e4b84ea2ddbb874e34, type: 3}
 --- !u!4 &553187629 stripped
 Transform:
@@ -14814,6 +14817,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1885815707}
   npcTarget: {fileID: 1876418705}
+  canReceiveLetter: 0
 --- !u!95 &553187638
 Animator:
   serializedVersion: 5
@@ -14891,7 +14895,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553187630}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b38e4bc919e1f040ba78aea7472893e, type: 3}
   m_Name: 
@@ -14901,7 +14905,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -15020,7 +15023,19 @@ MonoBehaviour:
   - id: db593e2e-5bee-11ef-9377-42010a7be011
     onSectionStart:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 697896775}
+          m_TargetAssemblyTypeName: MouseyTriggers, Assembly-CSharp
+          m_MethodName: SecretWord
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onSectionEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -15042,7 +15057,7 @@ MonoBehaviour:
     onSectionStart:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1270261378}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: InteractableObject, Assembly-CSharp
           m_MethodName: EnableInteraction
           m_Mode: 1
@@ -15092,6 +15107,19 @@ MonoBehaviour:
     triggerMessage: 'The player inform about the strange behavior of Big Vegas.  '
     destinationSection: e93af6aa-5c01-11ef-ab45-42010a7be011
     characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+--- !u!114 &553187646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553187630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1329bbc69d199d9489b331722311f856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 553187643}
 --- !u!4 &553609918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
@@ -18386,6 +18414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697896774}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 697896775}
   m_SourcePrefab: {fileID: 100100000, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}
 --- !u!4 &697896761 stripped
 Transform:
@@ -18524,6 +18555,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1422363961}
   npcTarget: {fileID: 1537818278}
+  canReceiveLetter: 0
 --- !u!95 &697896769
 Animator:
   serializedVersion: 5
@@ -18611,7 +18643,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -18773,6 +18804,19 @@ MonoBehaviour:
       him to stay away from cemetery
     destinationSection: 62924f86-5c01-11ef-8876-42010a7be011
     characterId: 475e9eaa-5b6a-11ef-9a2d-42010a7be011
+--- !u!114 &697896775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697896762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f98698828ce2d47992b782b4fafb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 697896772}
 --- !u!4 &698328360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7602194810454603475, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -20216,7 +20260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765192549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17240375, y: -0, z: -0, w: 0.98502636}
+  m_LocalRotation: {x: 0.17240375, y: -1e-45, z: -0, w: 0.98502636}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21016,6 +21060,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 564307936}
   npcTarget: {fileID: 1481731569}
+  canReceiveLetter: 0
 --- !u!136 &770076406
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21227,7 +21272,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -22620,6 +22664,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 983181945}
   npcTarget: {fileID: 1838151746}
+  canReceiveLetter: 0
 --- !u!136 &788005087
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22831,7 +22876,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -26502,9 +26546,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 889191826}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 889191827}
   m_SourcePrefab: {fileID: 100100000, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
 --- !u!4 &889191813 stripped
 Transform:
@@ -26633,6 +26674,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1438448964}
   npcTarget: {fileID: 432528523}
+  canReceiveLetter: 1
 --- !u!95 &889191821
 Animator:
   serializedVersion: 5
@@ -26720,7 +26762,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -26839,7 +26880,31 @@ MonoBehaviour:
   - id: e0f7ca28-5bf1-11ef-9377-42010a7be011
     onSectionStart:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 553187646}
+          m_TargetAssemblyTypeName: AmyTriggers, Assembly-CSharp
+          m_MethodName: WarnStartAway
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 697896775}
+          m_TargetAssemblyTypeName: MouseyTriggers, Assembly-CSharp
+          m_MethodName: WarnStartAway
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onSectionEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -26847,7 +26912,7 @@ MonoBehaviour:
     onSectionStart:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1645725484}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: InteractableObject, Assembly-CSharp
           m_MethodName: EnableInteraction
           m_Mode: 1
@@ -26898,23 +26963,6 @@ MonoBehaviour:
     triggerMessage: The player reached the cemetery phisically.
     destinationSection: 
     characterId: c3ffe554-5b6a-11ef-9735-42010a7be011
---- !u!114 &889191827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889191814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751e44abafd0a0d4ab632a0fe1d64af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  convaiNPC: {fileID: 889191824}
-  selectedTriggerIndex: 0
-  availableTriggers:
-  - receive_letter
-  - warn_cemetery
 --- !u!4 &890372220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5038731197205241680, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -30419,6 +30467,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1724830405}
   npcTarget: {fileID: 1213070318}
+  canReceiveLetter: 0
 --- !u!136 &1018495173
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30630,7 +30679,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -33080,6 +33128,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 727363528}
   npcTarget: {fileID: 1410008828}
+  canReceiveLetter: 0
 --- !u!136 &1100076360
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -33291,7 +33340,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -36354,15 +36402,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.8
+      value: 63.894
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6279998
+      value: 0.556
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.6
+      value: 52.24
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36401,9 +36449,6 @@ PrefabInstance:
       addedObject: {fileID: 1270261377}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1270261378}
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1270261379}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 6fffa2ac183f4b1458906716015c6ede, type: 3}
 --- !u!4 &1270261375 stripped
@@ -36437,18 +36482,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1270261378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270261376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ec1c57a53cadf4c94c366a1139e11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1270261379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37670,6 +37703,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 437996924}
   npcTarget: {fileID: 544657605}
+  canReceiveLetter: 0
 --- !u!136 &1300634614
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -37881,7 +37915,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -39773,6 +39806,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 683449054}
   npcTarget: {fileID: 524407217}
+  canReceiveLetter: 0
 --- !u!136 &1393126756
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -39984,7 +40018,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -41883,6 +41916,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1210473213}
   npcTarget: {fileID: 795314807}
+  canReceiveLetter: 0
 --- !u!136 &1465764682
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -42094,7 +42128,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -43056,6 +43089,7 @@ GameObject:
   - component: {fileID: 1510171425}
   - component: {fileID: 1510171424}
   - component: {fileID: 1510171426}
+  - component: {fileID: 1510171427}
   m_Layer: 0
   m_Name: CemeteryCollider
   m_TagString: Untagged
@@ -43116,6 +43150,25 @@ MonoBehaviour:
   availableTriggers:
   - receive_letter
   - warn_cemetery
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1510171427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510171423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c783ed73e64a204ebf38b93c054b566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convaiNPC: {fileID: 553187643}
+  selectedTriggerIndex: 0
+  availableTriggers:
+  - warn_stay_away
   onTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -45109,14 +45162,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8923681436371134190, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1645725484}
+      addedObject: {fileID: 1645725488}
   m_SourcePrefab: {fileID: 100100000, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
 --- !u!4 &1645725480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8114528098199174228, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
   m_PrefabInstance: {fileID: 1645725479}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1645725484
+--- !u!114 &1645725488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45125,7 +45178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 169582796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b6a664dd5a7b841a77c2658fa35f29, type: 3}
+  m_Script: {fileID: 11500000, guid: 761b955427f9d5945ace2b2fe52932bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1646282714 stripped
@@ -45604,7 +45657,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1745524990}
-  - {fileID: 2003820003}
   - {fileID: 445235483}
   - {fileID: 1470638577}
   m_Father: {fileID: 0}
@@ -47118,6 +47170,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 274922166}
   npcTarget: {fileID: 1568159782}
+  canReceiveLetter: 0
 --- !u!136 &1716715428
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47329,7 +47382,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -47619,6 +47671,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 2075274387}
   npcTarget: {fileID: 1071940615}
+  canReceiveLetter: 0
 --- !u!136 &1734389049
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47821,7 +47874,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -48146,6 +48198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745524990}
   - component: {fileID: 1745524991}
+  - component: {fileID: 1745524992}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48181,6 +48234,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 143321609}
+--- !u!114 &1745524992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745524989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeeac716cbbac741ae11750b4ec3642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1746479907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49529,28 +49594,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5507607962461701453, guid: d701b3870cdef1f40823216d619c3624, type: 3}
   m_PrefabInstance: {fileID: 1100076354}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1846360853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5556377780116934527, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003820003}
-  - component: {fileID: 2003820007}
-  - component: {fileID: 2003820006}
-  - component: {fileID: 2003820005}
-  - component: {fileID: 2003820004}
-  - component: {fileID: 2003820009}
-  - component: {fileID: 2003820008}
-  m_Layer: 0
-  m_Name: InworldController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &1846556222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3081730440247523351, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -51730,6 +51773,7 @@ MonoBehaviour:
   npcNameTextBox: {fileID: 251873905}
   npcHead: {fileID: 1564620819}
   npcTarget: {fileID: 435336379}
+  canReceiveLetter: 0
 --- !u!136 &1939394269
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51941,7 +51985,6 @@ MonoBehaviour:
   sessionID: -1
   isCharacterActive: 0
   actionsHandler: {fileID: 0}
-  convaiLipSync: {fileID: 0}
   isCharacterTalking: 0
   initializeSessionID: 1
   narrativeDesignManager: {fileID: 0}
@@ -52611,7 +52654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982024026}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13650893, y: 0.000000009920362, z: -0.0000000013670145, w: 0.99063885}
+  m_LocalRotation: {x: 0.13650894, y: -0.000000049953876, z: 0.000000006883589, w: 0.99063885}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52986,200 +53029,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2959826919619246122, guid: d701b3870cdef1f40823216d619c3624, type: 3}
   m_PrefabInstance: {fileID: 341348564}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2003820002
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1670149300}
-    m_Modifications:
-    - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_GameData
-      value: 
-      objectReference: {fileID: 11400000, guid: 368cbd0ba022de24c904f779fa11e85f, type: 2}
-    - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_AutoStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_SceneFullName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2995019885456371670, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_ManualAudioHandling
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3331053244747017235, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -47.12621
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.5933
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.385131
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5556377780116934527, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-      propertyPath: m_Name
-      value: InworldController
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
---- !u!4 &2003820003
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3753617577465698405, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -47.12621, y: -11.5933, z: -12.385131}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1670149300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2003820004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3331053244747017235, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c7724d7f1e0394c9a79e9ff4fbd818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2003820005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2995019885456371670, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3241affa9c0462fa7193839038c32c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2003820006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4881369806813467986, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5db5b813fe746f9a9ce5602a5521235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ServerConfig: {fileID: 11400000, guid: 5d4b4994cd4c627409e9c619e5e369e5, type: 2}
-  m_APIKey: 
-  m_APISecret: 
-  m_CustomToken: 
-  m_PublicWorkspace: 
-  m_PreviousDialog:
-    phrases: []
---- !u!114 &2003820007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2395919966041133306, guid: f787cea5870c91b4ebe8571dc197a25f, type: 3}
-  m_PrefabInstance: {fileID: 2003820002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78696971f17345f8b3a604c50919e8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Client: {fileID: 2003820006}
-  m_AudioCapture: {fileID: 2003820004}
-  m_CharacterHandler: {fileID: 2003820005}
-  m_GameData: {fileID: 11400000, guid: 368cbd0ba022de24c904f779fa11e85f, type: 2}
-  m_SceneFullName: 
-  m_AutoStart: 1
---- !u!114 &2003820008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f92db331c103a4aa88a10e82275245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ManualAudioHandling: 0
---- !u!114 &2003820009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846360853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ccca29f43636448025acee26204bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SamplingMode: 1
-  m_PlayerVolumeThreshold: 2
-  m_BufferSeconds: 1
-  m_DeviceName: 
-  OnRecordingStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRecordingEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPlayerStartSpeaking:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPlayerStopSpeaking:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &2005243176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7939995439548375709, guid: 1c1daf256913c3640a4611d8d5647cc8, type: 3}

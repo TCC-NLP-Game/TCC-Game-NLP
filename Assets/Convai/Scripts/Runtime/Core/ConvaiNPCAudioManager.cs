@@ -87,7 +87,7 @@ namespace Convai.Scripts
                         _audioSource.Stop();
                         _audioSource.clip = null;
                         PurgeLipSyncFrames();
-                        if (_responseAudios.Count == 0 && _convaiNPC.convaiLipSync != null)
+                        if (_responseAudios.Count == 0)
                             SetWaitForCharacterLipSync(true);
                     }
                     else
