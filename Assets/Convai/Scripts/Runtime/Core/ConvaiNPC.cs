@@ -2,26 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Convai.Scripts.Utils;
-using Convai.Scripts.Utils.LipSync;
 using Grpc.Core;
 using Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using Logger = Convai.Scripts.Utils.Logger;
-using System.Threading.Tasks;
-
-
-// ReSharper disable CompareOfFloatsByEqualityOperator
-#if UNITY_ANDROID
-using UnityEngine.Android;
-#endif
 
 namespace Convai.Scripts
 {
-    /// <summary>
-    ///     The ConvaiNPC class is a MonoBehaviour script that gives a GameObject the ability to interact with the Convai API.
-    /// </summary>
     [RequireComponent(typeof(Animator), typeof(AudioSource))]
     [AddComponentMenu("Convai/ConvaiNPC")]
     [HelpURL(
@@ -49,7 +38,6 @@ namespace Convai.Scripts
         [ReadOnly]
         public bool isCharacterActive;
         [HideInInspector] public ConvaiActionsHandler actionsHandler;
-        [HideInInspector] public ConvaiLipSync convaiLipSync;
 
         [Tooltip("Is this character talking?")]
         [SerializeField]
@@ -63,14 +51,10 @@ namespace Convai.Scripts
         [HideInInspector] public NarrativeDesignManager narrativeDesignManager;
         [HideInInspector] public TriggerUnityEvent onTriggerSent;
         private readonly Queue<GetResponseResponse> _getResponseResponses = new();
-        private bool _animationPlaying;
         private Channel _channel;
-        private Animator _characterAnimator;
         private ConvaiService.ConvaiServiceClient _client;
         private DialogueHandler dialogueHandler;
-        private ConvaiGroupNPCController _convaiGroupNPCController;
         private TMP_InputField _currentInputField;
-        private bool _groupNPCComponentNotFound;
         private ConvaiGRPCAPI _grpcAPI;
         private bool _isActionActive;
         private bool _isLipSyncActive;
@@ -78,30 +62,11 @@ namespace Convai.Scripts
         private bool _stopHandlingInput;
         public ActionConfig ActionConfig;
 
-        private bool IsInConversationWithAnotherNPC
-        {
-            get
-            {
-                if (_groupNPCComponentNotFound) return false;
-                if (_convaiGroupNPCController == null)
-                {
-                    if (TryGetComponent(out ConvaiGroupNPCController component))
-                        _convaiGroupNPCController = component;
-                    else
-                        _groupNPCComponentNotFound = true;
-                }
-
-                return _convaiGroupNPCController != null && _convaiGroupNPCController.IsInConversationWithAnotherNPC;
-            }
-        }
-
         public bool IsCharacterTalking
         {
             get => isCharacterTalking;
             private set => isCharacterTalking = value;
         }
-
-        private FaceModel FaceModel => convaiLipSync == null ? FaceModel.OvrModelName : convaiLipSync.faceModel;
 
         public string GetEndPointURL => GRPC_API_ENDPOINT;
 
@@ -114,6 +79,7 @@ namespace Convai.Scripts
         [field: NonSerialized] public bool ConvaiGroupNPCController { get; set; }
 
         public ConvaiNPCAudioManager AudioManager { get; private set; }
+
 
         private void Awake()
         {
@@ -145,28 +111,27 @@ namespace Convai.Scripts
 
         private void OnEnable()
         {
-            AudioManager.OnCharacterTalkingChanged += HandleIsCharacterTalkingAnimation;
-            AudioManager.OnAudioTranscriptAvailable += HandleAudioTranscriptAvailable;
             AudioManager.OnCharacterTalkingChanged += SetCharacterTalking;
+            AudioManager.OnAudioTranscriptAvailable += HandleAudioTranscriptAvailable;
 
             ConvaiNPCManager.Instance.OnActiveNPCChanged += HandleActiveNPCChanged;
-
-            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
         }
+
 
         private void OnDestroy()
         {
             if (AudioManager != null)
             {
-                AudioManager.OnCharacterTalkingChanged -= HandleIsCharacterTalkingAnimation;
-                AudioManager.OnAudioTranscriptAvailable -= HandleAudioTranscriptAvailable;
                 AudioManager.OnCharacterTalkingChanged -= SetCharacterTalking;
-                AudioManager.PurgeExcessLipSyncFrames -= PurgeLipSyncFrames;
+                AudioManager.OnAudioTranscriptAvailable -= HandleAudioTranscriptAvailable;
             }
 
             ConvaiNPCManager.Instance.OnActiveNPCChanged -= HandleActiveNPCChanged;
+        }
 
-            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
+        private void HandleAudioTranscriptAvailable(string transcript)
+        {
+            dialogueHandler.SendText(transcript);
         }
 
         /// <summary>
@@ -176,12 +141,6 @@ namespace Convai.Scripts
         private void OnApplicationQuit()
         {
             AudioManager.StopAudioLoop();
-        }
-
-        private void OnValidate()
-        {
-            //_convaiChatUIHandler = ConvaiChatUIHandler.Instance;
-            //if (_convaiChatUIHandler != null) _convaiChatUIHandler.UpdateCharacterList();
         }
 
         public async void TriggerEvent(string triggerName, string triggerMessage = "")
@@ -209,17 +168,14 @@ namespace Convai.Scripts
         private void HandleActiveNPCChanged(ConvaiNPC newActiveNPC)
         {
             // If this NPC is no longer the active NPC, interrupt its speech
-            if (this != newActiveNPC && !IsInConversationWithAnotherNPC) InterruptCharacterSpeech();
+            if (this != newActiveNPC) InterruptCharacterSpeech();
         }
 
 
         private void InitializeComponents()
         {
-            _characterAnimator = GetComponent<Animator>();
             AudioManager = gameObject.AddComponent<ConvaiNPCAudioManager>();
             narrativeDesignManager = GetComponent<NarrativeDesignManager>();
-
-            InitializeLipSync();
             StartCoroutine(InitializeActionsHandler());
         }
 
@@ -235,41 +191,6 @@ namespace Convai.Scripts
             }
         }
 
-        private void InitializeLipSync()
-        {
-            convaiLipSync = GetComponent<ConvaiLipSync>();
-            if (convaiLipSync != null)
-            {
-                _isLipSyncActive = true;
-                convaiLipSync = GetComponent<ConvaiLipSync>();
-                convaiLipSync.OnCharacterLipSyncing += UpdateWaitUntilLipSync;
-            }
-        }
-
-        private void HandleAudioTranscriptAvailable(string transcript)
-        {
-            //if (isCharacterActive) _convaiChatUIHandler.SendCharacterText(characterName, transcript);
-        }
-
-        /// <summary>
-        ///     Handles the character's talking animation based on whether the character is currently talking.
-        /// </summary>
-        private void HandleIsCharacterTalkingAnimation(bool isTalking)
-        {
-            if (isTalking)
-            {
-                if (!_animationPlaying)
-                {
-                    _animationPlaying = true;
-                    _characterAnimator.SetBool(Talk, true);
-                }
-            }
-            else
-            {
-                _animationPlaying = false;
-                _characterAnimator.SetBool(Talk, false);
-            }
-        }
 
         /// <summary>
         ///     Sends message data to the server asynchronously.
@@ -280,7 +201,7 @@ namespace Convai.Scripts
             try
             {
                 await ConvaiGRPCAPI.Instance.SendTextData(_client, text, characterID,
-                    _isActionActive, _isLipSyncActive, ActionConfig, FaceModel);
+                    _isActionActive, true, ActionConfig, FaceModel.OvrModelName);
             }
             catch (Exception ex)
             {
@@ -302,7 +223,7 @@ namespace Convai.Scripts
             }
 
             await _grpcAPI.StartRecordAudio(_client, _isActionActive, _isLipSyncActive, RECORDING_FREQUENCY,
-                RECORDING_LENGTH, characterID, ActionConfig, FaceModel);
+                RECORDING_LENGTH, characterID, ActionConfig, FaceModel.OvrModelName); 
         }
 
         /// <summary>
@@ -321,19 +242,13 @@ namespace Convai.Scripts
         public void EnqueueResponse(GetResponseResponse response)
         {
             if (response == null || response.AudioResponse == null) return;
-            //Logger.DebugLog($"Adding Response for Processing: {response.AudioResponse.TextData}", Logger.LogCategory.LipSync);
+            Logger.DebugLog($"Adding Response for Processing: {response.AudioResponse.TextData}", Logger.LogCategory.LipSync);
             _getResponseResponses.Enqueue(response);
         }
 
         public void ClearResponseQueue()
         {
             _getResponseResponses.Clear();
-        }
-
-        private void PurgeLipSyncFrames()
-        {
-            if (convaiLipSync == null) return;
-            convaiLipSync.PurgeExcessFrames();
         }
 
         /// <summary>
@@ -346,47 +261,42 @@ namespace Convai.Scripts
         private void ProcessResponse()
         {
             // Check if the character is active and should process the response
-            if (isCharacterActive || IsInConversationWithAnotherNPC)
-                if (_getResponseResponses.Count > 0)
+            if (!isCharacterActive) return;
+            if (_getResponseResponses.Count <= 0) return;
+            GetResponseResponse getResponseResponse = _getResponseResponses.Dequeue();
+            bool isDialogueOpen = GameManager.Instance.dialogueManager.isDialogueOpen;
+            if (getResponseResponse?.AudioResponse == null || !isDialogueOpen) return;
+            // Check if text data exists in the response
+            if (getResponseResponse.AudioResponse.AudioData.ToByteArray().Length > 46)
+            {
+                // Initialize empty string for text
+                string textDataString = getResponseResponse.AudioResponse.TextData;
+                if (textDataString == "") return;
+
+                byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
+
+                AudioClip clip = AudioManager.ProcessByteAudioDataToAudioClip(byteAudio,
+                    getResponseResponse.AudioResponse.AudioConfig.SampleRateHertz.ToString());
+
+                // Add the response audio along with associated data to the list
+                AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
                 {
-                    GetResponseResponse getResponseResponse = _getResponseResponses.Dequeue();
-
-                    if (getResponseResponse?.AudioResponse != null)
-                    {
-                        // Check if text data exists in the response
-                        if (getResponseResponse.AudioResponse.AudioData.ToByteArray().Length > 46)
-                        {
-                            // Initialize empty string for text
-                            string textDataString = getResponseResponse.AudioResponse.TextData;
-                            if (textDataString == "") return;
-
-                            byte[] byteAudio = getResponseResponse.AudioResponse.AudioData.ToByteArray();
-
-                            AudioClip clip = AudioManager.ProcessByteAudioDataToAudioClip(byteAudio,
-                                getResponseResponse.AudioResponse.AudioConfig.SampleRateHertz.ToString());
-
-                            // Add the response audio along with associated data to the list
-                            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
-                            {
-                                AudioClip = clip,
-                                AudioTranscript = textDataString,
-                                IsFinal = false
-                            });
-                            dialogueHandler.SendText(textDataString);
-                        }
-                        else if (getResponseResponse.AudioResponse.EndOfResponse)
-                        {
-                            Logger.DebugLog("We have received end of response", Logger.LogCategory.LipSync);
-                            // Handle the case where there is a DebugLog but no audio response
-                            AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
-                            {
-                                AudioClip = null,
-                                AudioTranscript = null,
-                                IsFinal = true
-                            });
-                        }
-                    }
-                }
+                    AudioClip = clip,
+                    AudioTranscript = textDataString,
+                    IsFinal = false
+                });
+            }
+            else if (getResponseResponse.AudioResponse.EndOfResponse)
+            {
+                Logger.DebugLog("We have received end of response", Logger.LogCategory.LipSync);
+                // Handle the case where there is a DebugLog but no audio response
+                AudioManager.AddResponseAudio(new ConvaiNPCAudioManager.ResponseAudio
+                {
+                    AudioClip = null,
+                    AudioTranscript = null,
+                    IsFinal = true
+                });
+            }
         }
 
         public int GetAudioResponseCount()
@@ -400,14 +310,6 @@ namespace Convai.Scripts
             AudioManager.ClearResponseAudioQueue();
         }
 
-        public void ResetCharacterAnimation()
-        {
-            if (_characterAnimator != null)
-                _characterAnimator.SetBool(Talk, false);
-
-            if (convaiLipSync != null)
-                convaiLipSync.ConvaiLipSyncApplicationBase.ClearQueue();
-        }
 
         public void SetCharacterTalking(bool isTalking)
         {
@@ -416,14 +318,13 @@ namespace Convai.Scripts
                 Logger.Info($"Character {characterName} is talking: {isTalking}", Logger.LogCategory.Character);
                 IsCharacterTalking = isTalking;
                 OnCharacterTalking?.Invoke(IsCharacterTalking);
-                dialogueHandler.FinishResponse();
+                if (!isTalking)
+                { 
+                    dialogueHandler.FinishResponse();
+                }
             }
         }
 
-        public void StopLipSync()
-        {
-            if (convaiLipSync != null) convaiLipSync.StopLipSync();
-        }
 
         public void InterruptCharacterSpeech()
         {

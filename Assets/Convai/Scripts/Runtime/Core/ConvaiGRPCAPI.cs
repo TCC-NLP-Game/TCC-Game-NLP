@@ -549,12 +549,6 @@ namespace Convai.Scripts.Utils
 
                 // Stop any ongoing audio playback
                 newActiveNPC.StopAllAudioPlayback();
-
-                // Stop any ongoing lip sync for active NPC
-                newActiveNPC.StopLipSync();
-
-                // Reset the character's animation to idle
-                newActiveNPC.ResetCharacterAnimation();
             }
         }
 
@@ -566,7 +560,6 @@ namespace Convai.Scripts.Utils
         private async Task ReceiveResultFromServer(AsyncDuplexStreamingCall<GetResponseRequest, GetResponseResponse> call, CancellationToken cancellationToken)
         {
             Queue<LipSyncBlendFrameData> lipSyncBlendFrameQueue = new();
-            bool firstSilFound = false;
             while (!cancellationToken.IsCancellationRequested && await call.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false))
                 try
                 {
@@ -578,8 +571,8 @@ namespace Convai.Scripts.Utils
 
                     if (result.UserQuery != null)
                         //if (_chatUIHandler != null)
-                            // Add user query to the list
-                            _stringUserText.Add(result.UserQuery.TextData);
+                        // Add user query to the list
+                        _stringUserText.Add(result.UserQuery.TextData);
 
                     // Trigger the current section of the narrative design manager in the active NPC
                     if (result.BtResponse != null) TriggerNarrativeSection(result);
@@ -590,7 +583,8 @@ namespace Convai.Scripts.Utils
                             _activeConvaiNPC.actionsHandler.actionResponseList.Add(result.ActionResponse.Action);
 
                     // Add audio response to the list in the active NPC
-                    if (result.AudioResponse != null)
+                    bool isInDialogue = GameManager.Instance.dialogueManager.isDialogueOpen;
+                    if (result.AudioResponse != null && isInDialogue)
                     {
                         if (result.AudioResponse.AudioData != null)
                         {
@@ -601,68 +595,18 @@ namespace Convai.Scripts.Utils
 
                                 // will only work for wav files
                                 WavHeaderParser parser = new(wavBytes);
-                                if (_activeConvaiNPC.convaiLipSync == null)
-                                {
-                                    Logger.DebugLog($"Enqueuing responses: {result.AudioResponse.TextData}", Logger.LogCategory.LipSync);
-                                    _activeConvaiNPC.EnqueueResponse(result);
-                                }
-                                else
-                                {
-                                    LipSyncBlendFrameData.FrameType frameType =
-                                        _activeConvaiNPC.convaiLipSync.faceModel == FaceModel.OvrModelName
-                                            ? LipSyncBlendFrameData.FrameType.Visemes
-                                            : LipSyncBlendFrameData.FrameType.Blendshape;
-                                    lipSyncBlendFrameQueue.Enqueue(
-                                        new LipSyncBlendFrameData(
-                                            (int)(parser.CalculateDurationSeconds() * 30),
-                                            result,
-                                            frameType
-                                        )
-                                    );
-                                }
+                                Logger.DebugLog($"Enqueuing responses: {result.AudioResponse.TextData}", Logger.LogCategory.LipSync);
+                                _activeConvaiNPC.EnqueueResponse(result);
                             }
 
-                            // Check if the response contains visemes data and the active NPC has a LipSync component
-                            if (result.AudioResponse.VisemesData != null)
-                                if (_activeConvaiNPC.convaiLipSync != null)
-                                {
-                                    // Logger.Info(result.AudioResponse.VisemesData, Logger.LogCategory.LipSync);
-                                    if (result.AudioResponse.VisemesData.Visemes.Sil == -2 || result.AudioResponse.EndOfResponse)
-                                    {
-                                        if (firstSilFound) lipSyncBlendFrameQueue.Dequeue().Process(_activeConvaiNPC);
-                                        firstSilFound = true;
-                                    }
-                                    else
-                                    {
-                                        lipSyncBlendFrameQueue.Peek().Enqueue(result.AudioResponse.VisemesData);
-                                    }
-                                }
+                            if (result.AudioResponse == null && result.DebugLog != null)
+                                _activeConvaiNPC.EnqueueResponse(call.ResponseStream.Current);
 
-                            // Check if the response contains blendshapes data and the active NPC has a LipSync component
-                            if (result.AudioResponse.BlendshapesFrame != null)
-                                if (_activeConvaiNPC.convaiLipSync != null)
-                                {
-                                    if (lipSyncBlendFrameQueue.Peek().CanProcess() || result.AudioResponse.EndOfResponse)
-                                    {
-                                        lipSyncBlendFrameQueue.Dequeue().Process(_activeConvaiNPC);
-                                    }
-                                    else
-                                    {
-                                        lipSyncBlendFrameQueue.Peek().Enqueue(result.AudioResponse.BlendshapesFrame);
-
-                                        if (lipSyncBlendFrameQueue.Peek().CanPartiallyProcess()) lipSyncBlendFrameQueue.Peek().ProcessPartially(_activeConvaiNPC);
-                                    }
-                                }
+                            // Check if the session id of active NPC is -1 then only update it
+                            if (_activeConvaiNPC.sessionID == "-1")
+                                // Update session ID in the active NPC
+                                _activeConvaiNPC.sessionID = call.ResponseStream.Current.SessionId;
                         }
-
-                        //
-                        if (result.AudioResponse == null && result.DebugLog != null)
-                            _activeConvaiNPC.EnqueueResponse(call.ResponseStream.Current);
-
-                        // Check if the session id of active NPC is -1 then only update it
-                        if (_activeConvaiNPC.sessionID == "-1")
-                            // Update session ID in the active NPC
-                            _activeConvaiNPC.sessionID = call.ResponseStream.Current.SessionId;
                     }
                 }
                 catch (RpcException rpcException)

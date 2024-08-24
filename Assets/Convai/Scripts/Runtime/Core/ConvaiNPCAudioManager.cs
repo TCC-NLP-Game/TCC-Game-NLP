@@ -10,21 +10,17 @@ namespace Convai.Scripts
     {
         private readonly Queue<ResponseAudio> _responseAudios = new();
         private AudioSource _audioSource;
-        private ConvaiNPC _convaiNPC;
         private bool _lastTalkingState;
         private bool _stopAudioPlayingLoop;
-        private bool _waitForCharacterLipSync;
 
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            _convaiNPC = GetComponent<ConvaiNPC>();
             _lastTalkingState = false;
         }
 
         public event Action<string> OnAudioTranscriptAvailable;
         public event Action<bool> OnCharacterTalkingChanged;
-        public event Action PurgeExcessLipSyncFrames;
 
         public void StopAllAudioPlayback()
         {
@@ -45,11 +41,6 @@ namespace Convai.Scripts
             }
         }
 
-        private void PurgeLipSyncFrames()
-        {
-            PurgeExcessLipSyncFrames?.Invoke();
-        }
-
         public void AddResponseAudio(ResponseAudio responseAudio)
         {
             _responseAudios.Enqueue(responseAudio);
@@ -63,7 +54,6 @@ namespace Convai.Scripts
 
         public bool SetWaitForCharacterLipSync(bool value)
         {
-            _waitForCharacterLipSync = value;
             return value;
         }
 
@@ -77,8 +67,6 @@ namespace Convai.Scripts
                     if (!currentResponseAudio.IsFinal)
                     {
                         _audioSource.clip = currentResponseAudio.AudioClip;
-                        while (_waitForCharacterLipSync)
-                            yield return new WaitForSeconds(0.01f);
                         _audioSource.Play();
                         //Logger.DebugLog($"Playing: {currentResponseAudio.AudioTranscript}", Logger.LogCategory.LipSync);
                         SetCharacterTalking(true);
@@ -86,9 +74,6 @@ namespace Convai.Scripts
                         yield return new WaitForSeconds(currentResponseAudio.AudioClip.length);
                         _audioSource.Stop();
                         _audioSource.clip = null;
-                        PurgeLipSyncFrames();
-                        if (_responseAudios.Count == 0 && _convaiNPC.convaiLipSync != null)
-                            SetWaitForCharacterLipSync(true);
                     }
                     else
                     {

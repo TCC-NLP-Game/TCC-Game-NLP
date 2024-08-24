@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    public float runningMultiplier = 1.8f;
     private readonly float rotationSpeed = 5f;
     private readonly float defaultSpeed = 3f;
-    private readonly float runningMultiplier = 1.8f;
     private Animator animator;
     private bool isGrounded = true;
     private CharacterController character;

@@ -12,6 +12,7 @@ namespace Convai.Scripts.Narrative_Design
         [HideInInspector] public int selectedTriggerIndex;
         [HideInInspector] public List<string> availableTriggers;
         public UnityEvent onTriggerEvent;
+        private bool wasTriggered = false;
 
         private void Awake()
         {
@@ -20,7 +21,7 @@ namespace Convai.Scripts.Narrative_Design
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player")) InvokeSelectedTrigger();
+            if (other.CompareTag("Player") && !wasTriggered) InvokeSelectedTrigger();
         }
 
 
@@ -45,6 +46,7 @@ namespace Convai.Scripts.Narrative_Design
                 string selectedTriggerName = availableTriggers[selectedTriggerIndex];
                 ConvaiNPCManager.Instance.SetActiveConvaiNPC(convaiNPC);
                 convaiNPC.TriggerEvent(selectedTriggerName);
+                wasTriggered = true;
             }
         }
     }
