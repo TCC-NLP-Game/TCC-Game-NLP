@@ -15060,19 +15060,7 @@ MonoBehaviour:
   - id: db593e2e-5bee-11ef-9377-42010a7be011
     onSectionStart:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 697896775}
-          m_TargetAssemblyTypeName: MouseyTriggers, Assembly-CSharp
-          m_MethodName: SecretWord
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     onSectionEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -15138,12 +15126,7 @@ MonoBehaviour:
       Amy suggests the player to see if there is nothing in the
       cemetery as a tip, but just if he''s not afraid to disappear too.'
     characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
-  triggerDataList:
-  - triggerId: e32461f2-5c01-11ef-8876-42010a7be011
-    triggerName: warn_stay_away
-    triggerMessage: 'The player inform about the strange behavior of Big Vegas.  '
-    destinationSection: e93af6aa-5c01-11ef-ab45-42010a7be011
-    characterId: f3cc7a0a-5b69-11ef-9d6b-42010a7be011
+  triggerDataList: []
 --- !u!114 &553187646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15156,7 +15139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1329bbc69d199d9489b331722311f856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 553187643}
 --- !u!4 &553609918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
@@ -18941,7 +18923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f98698828ce2d47992b782b4fafb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 697896772}
 --- !u!4 &698328360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7602194810454603475, guid: d701b3870cdef1f40823216d619c3624, type: 3}
@@ -20166,7 +20147,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 683771847}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.33333337
+  m_Size: 0.33333334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22113,7 +22094,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781929035}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15445812, y: 0.00000001472234, z: -0.0000000023016056, w: 0.9879994}
+  m_LocalRotation: {x: 0.15445812, y: -0.00000001472234, z: 0.0000000023016056, w: 0.9879994}
   m_LocalPosition: {x: -34.71191, y: -23.292147, z: -32.566433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27239,31 +27220,7 @@ MonoBehaviour:
   - id: e0f7ca28-5bf1-11ef-9377-42010a7be011
     onSectionStart:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 553187646}
-          m_TargetAssemblyTypeName: AmyTriggers, Assembly-CSharp
-          m_MethodName: WarnStartAway
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 697896775}
-          m_TargetAssemblyTypeName: MouseyTriggers, Assembly-CSharp
-          m_MethodName: WarnStartAway
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     onSectionEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -35316,7 +35273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195893652}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1544581, y: 1e-45, z: -0, w: 0.9879994}
+  m_LocalRotation: {x: 0.1544581, y: -0, z: -0, w: 0.9879994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36966,7 +36923,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 5}
+  m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1270261379
 MonoBehaviour:
@@ -43631,10 +43588,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convaiNPC: {fileID: 889191824}
-  selectedTriggerIndex: 1
+  selectedTriggerIndex: 0
   availableTriggers:
+  - warn_stay_away
   - receive_letter
-  - warn_cemetery
   onTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -45627,6 +45584,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8923681436371134190, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1645725488}
+    - targetCorrespondingSourceObject: {fileID: 8923681436371134190, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1645725492}
   m_SourcePrefab: {fileID: 100100000, guid: f42d59c7e9b6d964ba7a15739531ada0, type: 3}
 --- !u!4 &1645725480 stripped
 Transform:
@@ -45645,6 +45605,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b955427f9d5945ace2b2fe52932bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1645725492
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169582796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!4 &1646282714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1812909498023395591, guid: 372a709587fbaf746a76938b652ae85e, type: 3}
