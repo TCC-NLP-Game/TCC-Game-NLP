@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController)), RequireComponent(typeof(AudioSource))]
 public class PlayerMovement : MonoBehaviour
 {
     public float runningMultiplier = 1.8f;

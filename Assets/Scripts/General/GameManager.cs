@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public DialogueUIManager dialogueManager;
+    public PauseMenu pauseMenu;
 
     void Awake()
     {

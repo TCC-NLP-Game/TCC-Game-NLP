@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    protected bool canInteract = false;
+    [SerializeField] private bool canInteract = false;
 
     public void EnableInteraction()
     {
