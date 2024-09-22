@@ -26,6 +26,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
+        HandlePauseGame();
         HandleInteract();
         HandleCloseChat();
         rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * 10f);
@@ -34,6 +35,11 @@ public class PlayerInteract : MonoBehaviour
     private bool GetIsDialogueOpen()
     {
         return GameManager.Instance.dialogueManager.isDialogueOpen;
+    }
+
+    private bool GetIsGamePaused()
+    {
+        return GameManager.Instance.pauseMenu.isPaused;
     }
 
     private bool CanDialogueBeClosed ()
@@ -46,7 +52,7 @@ public class PlayerInteract : MonoBehaviour
         float interactRange = 4f;
         Ray ray = new(Camera.main.transform.position, Camera.main.transform.forward);
         interactHint.SetActive(false);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange) && !GetIsDialogueOpen())
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange) && !GetIsDialogueOpen() && !GetIsGamePaused())
         {
             if (hit.collider.TryGetComponent(out InteractableObject interactableObject))
             {
@@ -81,6 +87,15 @@ public class PlayerInteract : MonoBehaviour
             targetWeight = 0;
             GameManager.Instance.dialogueManager.CloseChat();
             NPCInteracting.EndInteraction();
+        }
+    }
+
+
+    private void HandlePauseGame()
+    {
+        if (!GetIsDialogueOpen() && Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.pauseMenu.PauseGame();
         }
     }
 }
